@@ -261,26 +261,20 @@ img {
 
 
 #img-container{
-    width:400px;
-    height:255px;
-    margin:20px auto;
+    width:600px;
+    height:382px;
 }
 @media (max-width: 768px){
     #img-container{
         width:200px;
         height:127.5px;
-        margin:20px auto;
     }
 }
-#pre-container{
-    display:none;
-}
-#pre-container.active{
-    display:block;
-}
+
+
 .img-preview{
-    width:255px;
-    height:255px;
+    width:180px;
+    height:180px;
     overflow: hidden;
 }
 @media (max-width: 768px){
@@ -303,6 +297,25 @@ img {
 }
 .btn-container{
     margin:20px auto;
+}
+.cas-container{
+    display:flex;
+    justify-content:space-around;
+}
+.pre-container{
+    display:flex;
+    justify-content: space-between;
+}
+@media (max-width: 768px){
+    .cas-container{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+    }
+    .pre-container{
+        padding-top:20px;
+    }
 }
 /* .cropper-container{
     max-width:400px;
