@@ -302,16 +302,17 @@ img {
     width:600px;
     height:338px;
 }
-@media (max-width: 768px){
-    #img-container{
-        width:200px;
-        height:127.5px;
-    }
-}
 @media (max-width: 1000px){
     #img-container{
         width:400px;
         height:225px;
+    }
+}
+@media (max-width: 768px){
+    #img-container{
+        width:200px;
+        height:127.5px;
+        margin-bottom:20px;
     }
 }
 
@@ -355,14 +356,17 @@ img {
         align-items:center;
         flex-direction: column;
     }
-    #img-container{
-        margin-bottom:20px;
-    }
 }
 .idcard-container{
     width:600px;
     height:338px;
     margin:0 auto;
+}
+@media (max-width: 768px){
+    .idcard-container{
+        width:300px;
+        height:169px;
+    }
 }
 .idcard-container>img{
     width:100%;
