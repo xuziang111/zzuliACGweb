@@ -5,15 +5,24 @@ body,html {
 }
 body {background-color: #abcdef;	} 	
 .loading{
-    background:rgba(0,0,0,0.2);
+    background:rgba(0,0,0,0.4);
     position: absolute;
     width:100%;
     height:100vh;
+    color:black;
+    z-index:1;
+    display:none;
+}
+.loading.active{
     display:flex;
     justify-content: center;
     align-items: center;
 }
-.box-taiji {width:50px;height:50px;position: absolute;margin:6px auto;border-radius:50px;background-color:#000;box-shadow:0 0 6px rgba(0,0,0,.8);animation:rotation 2.5s linear infinite;-webkit-animation:rotation 2.5s linear infinite;-moz-animation:rotation 2.5s linear infinite;}
+.loading>div{
+    display: flex;
+    align-items: center;
+}
+.box-taiji {z-index:1;width:50px;height:50px;position: relative;margin:6px auto;border-radius:50px;background-color:#000;box-shadow:0 0 6px rgba(0,0,0,.8);animation:rotation 2.5s linear infinite;-webkit-animation:rotation 2.5s linear infinite;-moz-animation:rotation 2.5s linear infinite;}
 .box-taiji:before,
 .box-taiji:after {width:25px;height:50px;position:absolute;top:0;display:block;content:"";}
 .box-taiji:before {left:0;border-radius:25px 0 0 25px;background-color:#000;}
@@ -26,22 +35,14 @@ body {background-color: #abcdef;	}
 .circle-02:after {width:9px;height:9px;position:absolute;z-index:3;display:block;content:"";border-radius:9px;}
 .circle-01:after {top:7px;left:7px;background-color:#fff;}
 .circle-02:after {bottom:7px;right:7px;background-color:#000;}
-/* @keyframes rotation {
+@keyframes rotation {
     0% {transform:rotate(0deg);}
     100% {transform:rotate(360deg);}
 }
-@-webkit-keyframes rotation {
-    0% {-webkit-transform:rotate(0deg);}
-    100% {-webkit-transform:rotate(360deg);}
-}
-@-moz-keyframes rotation {
-    0% {-moz-transform:rotate(0deg);}
-    100% {-moz-transform:rotate(360deg);}
-} */
 
 
 img {
-    max-width: 100%; /* This rule is very important, please do not ignore this! */
+    max-width: 100%; 
   }
 
 #tf-home {
