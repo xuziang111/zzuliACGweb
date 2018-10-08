@@ -2,8 +2,14 @@
 //有人拖窗口时响应
 window.onresize=function(){becomeSmall()}
 //使两个边框高度相等
+document.getElementsByClassName('box1')[0].addEventListener('click',function(){
+    let int = setInterval(function(){equalHeight()},1)
+    setTimeout(function(){window.clearInterval(int)},300)
+})
 function equalHeight(){
     $(".box1")[0].offsetHeight=$(".box2")[0].offsetHeight
+    $(".box1")[0].style.height=$(".box2")[0].offsetHeight + 'px'
+    console.log($(".box1")[0].offsetHeight)
 }
 
 //以768px为分界线 改变左侧样式

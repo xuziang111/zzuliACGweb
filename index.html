@@ -39,6 +39,14 @@
 
 </head>
 <body>
+    <!-- loading -->
+    <div class="loading">   
+        <div class="box-taiji">
+            <div class="circle-01"></div>
+            <div class="circle-02"></div>
+        </div>
+    </div>
+
 <!-- Navigation 样式占位，用于大体预览网页效果，此处不用修改
 ==========================================-->
 <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
@@ -77,24 +85,24 @@
                         <li>
                             <a href="#tab_3" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-camera-retro"></i> 我的头像 </a>
                         </li>
-                        <!--<li>-->
-                        <!--<a href="#tab_3" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-flag"></i> 我的勋章 </a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<a href="#tab_4" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<a href="#tab_5" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<a href="#tab_6" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<a href="#tab_7" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-id-card"></i> 实名认证 </a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<a href="#tab_8" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </a>-->
-                        <!--</li>-->
+                        <li>
+                        <a href="#tab_4" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-flag"></i> 我的勋章 </a>
+                        </li>
+                        <li>
+                        <a href="#tab_5" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </a>
+                        </li>
+                        <li>
+                        <a href="#tab_6" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </a>
+                        </li>
+                        <li>
+                        <a href="#tab_7" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </a>
+                        </li>
+                        <li>
+                        <a href="#tab_8" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-id-card"></i> 实名认证 </a>
+                        </li>
+                        <li>
+                        <a href="#tab_9" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </a>
+                        </li>
                     </ul>
                     <ul class="nav nav-pills nav-stacked navbar-inverse nav-pills-special">
                         <!--<li>-->
@@ -292,8 +300,8 @@
                                         <img id="user-head-image" src="Images/head-zhanwei.png">
                                     </div>
                                     <div id="pre-container">
-                                        <div class=""><div class="img-preview squ"><img id="user-head-image" src="Images/head-zhanwei.png"></div><p>方形头像</p></div>
-                                        <div class=""><div class="img-preview cir"><img id="user-head-image" src="Images/head-zhanwei.png"></div><p>圆形头像</p></div>
+                                        <div class=""><div class="img-preview squ"><img id="user-head-image" src="Images/preview.png"></div><p>方形头像</p></div>
+                                        <div class=""><div class="img-preview cir"><img id="user-head-image" src="Images/preview.png"></div><p>圆形头像</p></div>
                                     </div>
                                 </div>
                                 <div class="btn-container">
@@ -311,7 +319,41 @@
                         <div class="tab-pane fade" id="tab_5">该标签页功能待建设</div>
                         <div class="tab-pane fade" id="tab_6">该标签页功能待建设</div>
                         <div class="tab-pane fade" id="tab_7">该标签页功能待建设</div>
-                        <div class="tab-pane fade" id="tab_8">该标签页功能待建设</div>
+                        <div class="tab-pane fade" id="tab_8">
+                            实名认证
+                            <div>
+                                <div id="idcard-obverse-container" class="idcard-container">
+                                    <p>正面</p>
+                                    <img id="idcard-obverse" src="Images/head-zhanwei.png">
+                                </div>
+                                <div class="btn-container">
+                                   <label class="btn btn-primary btn-upload" for="input-idcard-obverse" title="Upload image file">
+                                        <input type="file" class="sr-only" id="input-idcard-obverse" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                                        <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Import image with Blob URLs">
+                                          选择图片<span class="fa fa-upload"></span>
+                                        </span>
+                                    </label>
+                                    <button id="change-idcard-obverse-btn"type="button" class="btn btn-user">上传</button>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="idcard-reverse-container" class="idcard-container">
+                                    <p>反面</p>
+                                    <img id="idcard-reverse" src="Images/head-zhanwei.png">
+                                </div>
+                                <div class="btn-container">
+                                   <label class="btn btn-primary btn-upload" for="input-idcard-reverse" title="Upload image file">
+                                        <input type="file" class="sr-only" id="input-idcard-reverse" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                                        <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Import image with Blob URLs">
+                                          选择图片<span class="fa fa-upload"></span>
+                                        </span>
+                                    </label>
+                                    <button id="change-idcard-reverse-btn"type="button" class="btn btn-user">上传</button>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab_9">该标签页功能待建设</div>
+                        <div class="tab-pane fade" id="tab_10">该标签页功能待建设</div>
                     </div>
                 </div>
                 <div class="clearfix"></div>
