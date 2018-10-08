@@ -38,11 +38,10 @@
         console.log(base64url); //生成base64图片的格式
 
         $.ajax({
-            url:'127.0.0.1',
+            url:'/xxx',
             type:'POST',
             data:base64url,
             beforeSend:function(){
-                console.log($('loading'))
                     $('.loading').addClass("active")
             },
             success:function(data){
@@ -53,7 +52,6 @@
             },
             complete:function(){
                 setTimeout(function(){
-                    console.log($('loading2'))
                     $('.loading').removeClass("active")
                 },1000)
             }

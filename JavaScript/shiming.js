@@ -43,7 +43,6 @@
                     },
                     complete:function(){
                         setTimeout(function(){
-                            console.log($('loading2'))
                             $('.loading').removeClass("active")
                         },1000)
                     }
