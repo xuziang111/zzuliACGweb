@@ -26,3 +26,6 @@
 .blackList-item-lt-message>div:nth-child(1){
     color:#222;
 }
+.blackList-item-lt>div{
+    min-width:60px;
+}
