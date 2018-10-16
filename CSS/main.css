@@ -2,8 +2,22 @@
 body,html {
     /*font-family:'Lato',sans-serif;*/
     /*color:#5a5a5a;*/
+    box-sizing: border-box
 }
-
+.user-msg-title > h2{
+    font-size:20px;
+}
+select{
+    height:26px;
+    line-height:26px;
+    padding-bottom:1px;
+}
+input{
+    
+}
+label{
+    font-weight:normal;
+}
 .loading{
     background:rgba(0,0,0,0.4);
     position: fixed;
