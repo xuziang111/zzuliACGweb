@@ -41,7 +41,7 @@
             }
             return document.getElementById(a).value
         }
-        tempForm.append("itype",temp("itype"));
+        tempForm.append("username",temp("username"));
         tempForm.append("true-name",temp("true-name"));
         tempForm.append("id-number",temp("id-number"));
         //append添加要传输的内容
