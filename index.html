@@ -28,6 +28,8 @@
     <!--例如：<link href="CSS/xxx.css" rel="stylesheet">-->
     <link href="./CSS/main.css" rel="stylesheet">
     <link href="./CSS/blackList.css" rel="stylesheet">
+    <link href="./CSS/safeList.css" rel="stylesheet">
+    <link href="./CSS/prs-info.css" rel="stylesheet">
 
     <!--此处引入你的外部CSS文件，end-->
     <!--*********************************************************************************************-->
@@ -329,9 +331,18 @@
                             <div class="line-border"></div>
                             <main>
                                 <ul>
-                                    <li>
-                                        <div>
-                                            
+                                    <li class="safe-list-li">
+                                        <div class="container">
+                                            <div class="col-xs-4 text-left"><i class="fa fa-fw fa-exclamation-circle"></i>绑定新浪微博</div>
+                                            <div class="col-xs-4">绑定已过期，需要重新绑定</div> 
+                                            <div class="col-xs-4">重新绑定</div> 
+                                        </div>
+                                    </li>
+                                    <li class="safe-list-li">
+                                        <div class="container">
+                                            <div class="col-xs-4 text-left"><i class="fa fa-fw fa-check-circle"></i>绑定邮箱</div>
+                                            <div class="col-xs-4">example@email.com</div> 
+                                            <div class="col-xs-4">已绑定</div> 
                                         </div>
                                     </li>
                                 </ul>
