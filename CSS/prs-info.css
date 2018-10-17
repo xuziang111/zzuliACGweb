@@ -17,3 +17,6 @@
     height:auto;
     line-height:auto;
 }
+.radio-inline > input{
+    display:none;
+}
