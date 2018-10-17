@@ -14,6 +14,10 @@
     $("#input-image").on("change", function (e) {
         var fileInput = document.getElementById("input-image");        
         var file = fileInput.files[0];        //创建读取文件的对象
+        if(file.size > 5242880){
+            alert('上传图片请小于5mb')
+            return
+        }
         if(file.type.indexOf("image") < 0){
             alert('请上传图片文件')
             return

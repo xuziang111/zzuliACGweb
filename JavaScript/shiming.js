@@ -6,8 +6,10 @@
         $(a).on("change", function (e) {
             var fileInput = $(a)[0];        
             var file = fileInput.files[0];        //创建读取文件的对象
-            console.log(file.type)
-            console.log(file)
+            if(file.size > 5242880){
+                alert('上传图片请小于5mb')
+                return
+            }
             if(file.type.indexOf("image") < 0){
                 alert('请上传图片文件')
                 return
@@ -36,13 +38,18 @@
         })
         function temp(a){ //获取上传内容
             if(document.getElementById(a).value === ""){
-                alert("请完善内容")
-                return 
+                return false
             }
             return document.getElementById(a).value
         }
-        tempForm.append("username",temp("username"));
+        //判断是否都填写完成
+        if(!(temp("true-name")&&temp("true-name")&&temp("id-number"))){
+            alert("有内容未填写")
+            return 
+        }
+        console.log('fin')
         tempForm.append("true-name",temp("true-name"));
+        tempForm.append("itype",temp("itype"));
         tempForm.append("id-number",temp("id-number"));
         //append添加要传输的内容
         $.ajax({

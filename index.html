@@ -238,6 +238,7 @@
                                         <label class="col-sm-2 control-label" for="username">昵称：</label>
                                         <input class="form-control" type="text" id="username" placeholder="昵称">
                                     </div>
+                                    <!-- 个性签名做处理防止xml注入 -->
                                     <div class="form-group form-group-sm">
                                         <label class="col-sm-2 control-label" for="usermotto">个性签名：</label>
                                         <input class="form-control" type="text" id="usermotto" placeholder="个性签名">
@@ -246,17 +247,19 @@
                                         <label class="col-sm-2 control-label" for="Birthday">出生日期：</label>
                                         <input class="form-control" type="date" id="Birthday" placeholder="如：1998-05-25">
                                     </div>
-                                    <div class="form-group form-group-sm">
-                                        <label class="col-sm-2 control-label">用户性别? XiuJi?：</label>
+                                    <div class="form-group form-group-sm sex-radio-container">
+                                        用户性别? XiuJi?：
                                         <label class="radio-inline">
-                                             <input type="radio" name="sex" id="inlineRadio1" value="1"> 猛汉 ♂
-                                             <span class="btn sex-btn">男</span>
+                                             <input type="radio" name="sex" id="inlineRadio1" value="1" hidden> 
+                                             <span class="sex-btn">猛汉</span>
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="sex" id="inlineRadio2" value="2"> 萌妹 ♀
+                                            <input type="radio" name="sex" id="inlineRadio2" value="2"> 
+                                            <span class="sex-btn">萌妹</span>
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="sex" id="inlineRadio2" value="3" checked> 保密
+                                            <input type="radio" name="sex" id="inlineRadio2" style="display:block" value="3" checked> 
+                                            <span class="sex-btn">保密</span>
                                         </label>
                                     </div>
                                     <div class="form-group form-group-sm">
@@ -512,6 +515,7 @@
 <script type="text/javascript" src="./JavaScript/main.js"></script>
 <script type="text/javascript" src="./JavaScript/headUpdate.js"></script>
 <script type="text/javascript" src="./JavaScript/shiming.js"></script>
+<script type="text/javascript" src="./JavaScript/preInfo.js"></script>
 
 <!--*********************************************************************************************-->
 <!--此处追加你要增加的外部JS文件标签，start-->

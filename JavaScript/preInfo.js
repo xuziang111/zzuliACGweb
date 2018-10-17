@@ -1,19 +1,34 @@
-(function(){
+(function(){//页面加载时要从服务器或者本地获取用户信息渲染在页面上
+    $(".radio-inline").on("click",function(e){
+        console.log(e.target.tagName)
+        if(e.target.tagName === "INPUT"){
+            let xxx = $(e.target).parent();
+            console.log($(e.target).parent());
+            xxx.addClass("active").siblings().removeClass("active"); 
+            console.log($("input[name='sex']:checked").val())
+         }
+    })
     $("#false-id-sumbit").on("click",function(){
-        let tempForm = new FormData();
+        // let tempForm = new FormData();
+        let data ={}
         $("input[name='sex']").for
         function temp(a){ //获取上传内容
             return document.getElementById(a).value
         }
-        tempForm.append("itype",temp("itype"));
-        tempForm.append("usermotto",temp("usermotto"));
-        tempForm.append("Birthday",temp("Birthday"));
+        data.username=temp("username")
+        data.usermotto=temp("usermotto")
+        data.Birthday=temp("Birthday")
+        data.sex=$("input[name='sex']:checked").val()
+        data=JSON.stringify(data)//数据转json
+        // tempForm.append("username",temp("username"));
+        // tempForm.append("usermotto",temp("usermotto"));
+        // tempForm.append("Birthday",temp("Birthday"));
+        // tempForm.append("sex",$("input[name='sex']:checked").val())
         //append添加要传输的内容
         $.ajax({
             type: "post",
             url: "/xxx",
-            data: tempForm,
-            contentType: 'multipart/form-data', 
+            data: JSON.stringify(data),
             processData: false,    //false
             cache: false,    //缓存
             beforeSend:function(){
@@ -32,4 +47,5 @@
             }
       })
     })
+
 }())
