@@ -65,7 +65,7 @@
         $.ajax({
             type: "post",
             url: "/removeBlacklist",
-            data: pageData, 
+            data: temp, 
             processData: false,    //false
             cache: false,    //缓存
             beforeSend:function(){
@@ -89,7 +89,7 @@
 
 
 //模拟接收的时json数据
-var bList ='{"code":200,"message":null,"data":{"total":8,"size":10,"pages":2,"current":1,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
+var bList ='{"code":200,"message":null,"data":{"total":18,"size":10,"pages":2,"current":1,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
 //----下面时成功收到时执行的内容
 function ajaxSuccess(bList){
     bList = JSON.parse(bList)
@@ -146,7 +146,7 @@ function makeLiFor(a,b,current){//循环生成li
 function makeLi(temp,bList){//生成要渲染的分页标签
     console.log(temp.current)
     let a,b
-    if(bList.data.total <= temp.size*5){//生成要渲染的分页标签
+    if(bList.data.total <= temp.size*5){
         //标签页小于等于5时
         a=1;
         b=temp.page
