@@ -1,5 +1,9 @@
 (function(){
-
+    //进入黑名单页面时进行加载
+    $('#BLanchor').on('click',function(){
+        ajaxSuccess(bList)
+    })
+    //点击页面标签时
     $("#bl-nav").on("click",function(e){
         if(e.target.tagName === 'SPAN'){
             let temp ={}
@@ -28,7 +32,7 @@
         })
     }
     })
-
+    //点击移除按钮时
     $("#blackList-content").on("click",function(e){
         if(e.target.tagName === 'BUTTON'){
         let temp = {removeBl:$(e.target).attr('value')}
@@ -141,6 +145,5 @@ function makeLi(temp,bList){//生成要渲染的分页标签
 }
 
 //---------
-ajaxSuccess(bList)
 
 }())
