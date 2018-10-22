@@ -2,12 +2,37 @@
     //进入黑名单页面时进行加载
     $('#BLanchor').on('click',function(){
         ajaxSuccess(bList)
+        // let temp ={}
+        //     temp['needPage'] = 1
+        //     temp = JSON.stringify(temp)
+        // $.ajax({
+        //     type: "post",
+        //     url: "/loadingBlacklist",
+        //     data: pageData, 
+        //     processData: false,    //false
+        //     cache: false,    //缓存
+        //     beforeSend:function(){
+        //         $('.loading').addClass("active")
+        //     },
+        //     success: function(data){//重新接收数据
+        //         console.log('成功移除')
+        //         ajaxSuccess(data)      
+        //     },
+        //     fail:function(){
+        //         console.log('error')
+        //     },
+        //     complete:function(){
+        //         setTimeout(function(){
+        //             $('.loading').removeClass("active")
+        //         },1000)
+        //     }
+        // }) 
     })
     //点击页面标签时
     $("#bl-nav").on("click",function(e){
         if(e.target.tagName === 'SPAN'){
             let temp ={}
-            temp['needPage'] = $(e.target).attr('data-page')
+            temp['needPage'] = $(e.target).attr('data-page') 
             temp = JSON.stringify(temp)
         $.ajax({
             type: "post",
@@ -64,12 +89,12 @@
 
 
 //模拟接收的时json数据
-var bList ='{"code":200,"message":null,"data":{"total":8,"size":5,"pages":2,"current":1,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
+var bList ='{"code":200,"message":null,"data":{"total":8,"size":10,"pages":2,"current":1,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
 //----下面时成功收到时执行的内容
 function ajaxSuccess(bList){
     bList = JSON.parse(bList)
     let temp={}
-    temp.size = 5
+    temp.size = bList.data.size || 10
     console.log(bList.data.records)
     temp.domValue = ``
     temp.data = bList.data.records
