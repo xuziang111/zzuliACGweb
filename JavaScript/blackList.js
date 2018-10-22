@@ -1,6 +1,6 @@
 (function(){
-    $("blackList-item-rt>button").on("click",function(){
-        
+    $("blackList-item-rt>button").on("click",function(e){
+        console.log(e)
         $.ajax({
             type: "post",
             url: "/removeBlacklist",
@@ -58,12 +58,65 @@ temp.data.forEach(function(e){
 })
 
 temp.domNav = ''
-temp.current = bList.data.total
-console.log(Math.ceil(bList.data.total/temp.size))
-if(bList.data.total <= temp.size*5){
-    for(let i=1;i<=Math.ceil(bList.data.total/temp.size);i++)
-    temp.domNav += `<li><a href="#">${i}</a></li>`
+temp.current = bList.current
+temp.total = bList.data.total
+temp.page = Math.ceil(bList.data.total/temp.size)
+function makeLi(i,current){//生成标签页
+    let tp = ''
+    if(i===current){//给当前页面标签加上.active}
+        tp += `<li class="active"><a data-page="${i}" href="#">${i}</a></li>`
+            }else{
+        tp += `<li><a data-page="${i}" href="#">${i}</a></li>`
+    }
+    return tp
 }
+//-------
+{
+let a,b
+if(bList.data.total <= temp.size*5){//生成要渲染的分页标签
+    //标签页小于等于5时
+    for(let i=1;i<=temp.page ;i++){
+        temp.domNav = temp.domNav + makeLi(i,temp.current)
+    }
+}else if(bList.data.total > temp.size*5){
+    //总标签页大于5时
+    if(temp.current < 3){//当前标签页小于5时
+        for(let i=1;i<=temp.page ;i++){
+            temp.domNav = temp.domNav + makeLi(i,temp.current)
+        }
+    }else if(temp.current >= 3 && temp.current >= temp.page-2){//当前标签页大于最大标签页-2时
+        for(let i=temp.current-2;i<=temp.current+2 ;i++){
+            temp.domNav = temp.domNav + makeLi(i,temp.current)
+        }
+    }else if(temp.current > temp.page-2){
+        for(let i=temp.page-4;i<=temp.page ;i++){
+            temp.domNav = temp.domNav + makeLi(i,temp.current)
+        }
+    }
+}else if(bList.data.total > temp.size*5){
+    //总标签页大于5时
+    if(temp.current < 3){//当前标签页小于5时
+        a=1;
+        b=temp.page;
+        for(let i=a;i<=b ;i++){
+            temp.domNav = temp.domNav + makeLi(i,temp.current)
+        }
+    }else if(temp.current >= 3 && temp.current >= temp.page-2){//当前标签页大于最大标签页-2时
+        a=temp.current-2;
+        b=temp.current+2;
+        for(let i=a;i<=b ;i++){
+            temp.domNav = temp.domNav + makeLi(i,temp.current)
+        }
+    }else if(temp.current > temp.page-2){
+        a=temp.page-4;
+        b=temp.page;
+        for(let i=a;i<=b ;i++){
+            temp.domNav = temp.domNav + makeLi(i,temp.current)
+        }
+    }
+}
+}
+//---------
 console.log(temp.domNav)
 console.log(temp.domValue)
 function mkTemplate(){
