@@ -13,8 +13,15 @@
         let data ={}
         $("input[name='sex']").for
         function temp(a){ //获取上传内容
+            if(document.getElementById(a).value === ""){
+                return false
+            }
             return document.getElementById(a).value
         }
+            if(!(temp("username")&&temp("usermotto")&&temp("Birthday"))){
+                alert("有内容未填写")
+                return 
+            }
         data.username=temp("username")
         data.usermotto=temp("usermotto")
         data.Birthday=temp("Birthday")
