@@ -42,16 +42,8 @@
 
 </head>
 <body>
-    <!-- loading -->
-    <div class="loading">
-        <div>   
-        <div class="box-taiji">
-            <div class="circle-01"></div>
-            <div class="circle-02"></div>
-        </div>
-        <p>少女祈祷中...</p>
-        </div>
-    </div>
+    
+
 
 <!-- Navigation 样式占位，用于大体预览网页效果，此处不用修改
 ==========================================-->
@@ -68,78 +60,7 @@
 <!-- Home Page 在此处修改你的内容
 ==========================================-->
 <div id="tf-home" class="text-center">
-    <div class="overlay">
-        <div class="becomeBlack"></div>
-        <div class="content">
-            <h1>郑州轻工业大学<strong><span class="color">动漫协会</span></strong></h1>
-            <p class="lead">--前方网站建设中，通行禁止！<i class="fa fa-exclamation-triangle fa-1x" aria-hidden="true"></i></p>
-        </div>
-        <div id="body-container" class="container">
-            <div class="row">
-                <div class="user-Center-Container">
-                    <span class="glyphicon glyphicon-chevron-right user-Center" aria-hidden="true"></span>
-                </div>
-                <aside class="col-sm-2 col-md-2 box1">
-                    <ul class="nav nav-pills nav-stacked navbar-inverse">
-                        <li><span>个人中心</span></li>
-                        <li class="active">
-                            <a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-home"></i> 中心首页 </a>
-                        </li>
-                        <li>
-                            <a href="#tab_2" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user"></i> 我的信息 </a>
-                        </li>
-                        <li>
-                            <a href="#tab_3" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-camera-retro"></i> 我的头像 </a>
-                        </li>
-                        <li>
-                        <a href="#tab_4" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-flag"></i> 我的勋章 </a>
-                        </li>
-                        <li>
-                        <a href="#tab_5" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </a>
-                        </li>
-                        <li>
-                        <a href="#tab_6" id="BLanchor" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </a>
-                        </li>
-                        <li>
-                        <a href="#tab_7" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </a>
-                        </li>
-                        <li>
-                        <a href="#tab_8" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-id-card"></i> 实名认证 </a>
-                        </li>
-                        <li>
-                        <a href="#tab_9" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-pills nav-stacked navbar-inverse nav-pills-special">
-                        <!--<li>-->
-                        <!--<a href="#"> 个人空间 </a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<a href="#"> 创作中心 </a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<a href="#"> 投稿管理 </a>-->
-                        <!--</li>-->
-                    </ul>
-                </aside>
-                <main class="col-sm-10 col-md-10 box2">
-                    <div id="xxx" class="tab-content">
-                        <user-center-home-page></user-center-home-page>
-                        <per-inf></per-inf>
-                        <!-- 更换头像 -->
-                        <my-head></my-head>
-                        <my-medal></my-medal>
-                        <account-safe></account-safe>
-                        <black-list></black-list>
-                        <my-record></my-record>
-                        <certification-id></certification-id>
-                        <invite-register></invite-register>
-                    </div>
-                </main>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-</div>
+    <app-main></app-main>
 </div>
 <!--==========================================-->
 <!--*********************************************************************************************-->
@@ -168,7 +89,7 @@
 <!--JQ-->
 <script type="text/javascript" src="./JavaScript/jquery.js"></script>
 <!--Boostrap's JS-->
-<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <!--页面中的平滑滚动插件-->
 <script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
 <!--jQuery智能布局插件 Isotope -->
@@ -191,7 +112,10 @@
 <script src="./JavaScript/vue/yaoqingzhuce.js"></script>
 <script src="./JavaScript/vue/zhanghaoanquan.js"></script>
 <script src="./JavaScript/vue/zhongxinshouye.js"></script>
+<script src="./JavaScript/vue/aside-vue.js"></script>
+<script src="./JavaScript/vue/app-main.js"></script>
 <script src="./JavaScript/vue/app-vue.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./JavaScript/main.js"></script>
 <script type="text/javascript" src="./JavaScript/headUpdate.js"></script>
 <script type="text/javascript" src="./JavaScript/shiming.js"></script>

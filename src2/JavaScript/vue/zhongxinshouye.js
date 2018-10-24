@@ -1,4 +1,4 @@
-Vue.component('user-center-home-page',{
+let zhongxinshouye = Vue.component('user-center-home-page',{
 
     template:`
     <div class="tab-pane active" id="tab_1">

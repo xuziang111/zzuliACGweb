@@ -4,31 +4,31 @@ Vue.component('app-aside',{
     <ul class="nav nav-pills nav-stacked navbar-inverse">
         <li><span>个人中心</span></li>
         <li class="active">
-            <a href="#tab_1" ><i class="fa fa-fw fa-home"></i> 中心首页 </a>
+        <router-link to="/zhongxinshouye"><i class="fa fa-fw fa-home"></i> 中心首页 </router-link>
         </li>
         <li>
-            <a href="#tab_2" class="tab-default"><i class="fa fa-fw fa-user"></i> 我的信息 </a>
+            <a href="#tab_2" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user"></i> 我的信息 </a>
         </li>
         <li>
-            <a href="#tab_3"  class="tab-default"><i class="fa fa-fw fa-camera-retro"></i> 我的头像 </a>
+            <a href="#tab_3" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-camera-retro"></i> 我的头像 </a>
         </li>
         <li>
-        <a href="#tab_4"  class="tab-default"><i class="fa fa-fw fa-flag"></i> 我的勋章 </a>
+        <a href="#tab_4" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-flag"></i> 我的勋章 </a>
         </li>
         <li>
-        <a href="#tab_5"  class="tab-default"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </a>
+        <a href="#tab_5" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </a>
         </li>
         <li>
-        <a href="#tab_6" id="BLanchor"  class="tab-default"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </a>
+        <a href="#tab_6" id="BLanchor" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </a>
         </li>
         <li>
-        <a href="#tab_7"  class="tab-default"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </a>
+        <a href="#tab_7" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </a>
         </li>
         <li>
-        <a href="#tab_8"  class="tab-default"><i class="fa fa-fw fa-id-card"></i> 实名认证 </a>
+        <a href="#tab_8" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-id-card"></i> 实名认证 </a>
         </li>
         <li>
-        <a href="#tab_9"  class="tab-default"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </a>
+        <a href="#tab_9" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </a>
         </li>
     </ul>
     <ul class="nav nav-pills nav-stacked navbar-inverse nav-pills-special">
