@@ -28,16 +28,13 @@ function bindEvent(){
     //小窗口左侧图标
     $(".user-Center-Container").click(function(){
         $('.box1').addClass("active")
-        $(".becomeBlack").addClass("is-open")
     })
     //小窗口用户中心弹出，底色变暗
  $(".becomeBlack").click(function(){
     $('.box1').removeClass("active")
-    $(".becomeBlack").removeClass("is-open")
 })
 $("aside>.nav").click(function(){
     $('.box1').removeClass("active")
-    $(".becomeBlack").removeClass("is-open")
 })
 }
 

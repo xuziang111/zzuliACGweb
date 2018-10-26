@@ -1,7 +1,7 @@
 Vue.component('app-aside',{
     template:`
     <aside class="col-sm-2 col-md-2 box1">
-    <ul class="nav nav-pills nav-stacked navbar-inverse">
+    <ul class="nav nav-pills nav-stacked navbar-inverse" @click="$emit('click-aside')">
         <li><span>个人中心</span></li>
         <li>
         <router-link to="/zhongxinshouye"><i class="fa fa-fw fa-home"></i> 中心首页 </router-link>
@@ -28,7 +28,7 @@ Vue.component('app-aside',{
         <router-link to="/shimingrenzheng"><i class="fa fa-fw fa-id-card"></i> 实名认证 </router-link>
         </li>
         <li>
-        <router-link to="/yaoqingrenzheng"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </router-link>
+        <router-link to="/yaoqingzhuce"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </router-link>
         </li>
     </ul>
 </aside>

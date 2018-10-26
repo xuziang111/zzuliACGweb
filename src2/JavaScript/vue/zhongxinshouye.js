@@ -103,5 +103,8 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
         </div>
     </div>
 </div>
-    `
+    `,
+    beforeCreate() {
+        //从后台拿信息
+    },
 })

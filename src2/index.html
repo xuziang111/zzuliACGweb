@@ -67,10 +67,10 @@
         </div>
         <div id="body-container" class="container">
             <div class="row">
-                <div class="user-Center-Container">
+                <div class="user-Center-Container" @click="asideOpen">
                     <span class="glyphicon glyphicon-chevron-right user-Center" aria-hidden="true"></span>
                 </div>
-                <app-aside></app-aside>
+                <app-aside @click-aside="asideClose"></app-aside>
                 <main class="col-sm-10 col-md-10 box2">
                     <div class="">
                         <router-view></router-view>
@@ -78,18 +78,20 @@
                 </main>
                 <div class="clearfix"></div>
                 <!-- becomeBlack -->
-                <div class="becomeBlack"></div>
-                <!-- loading -->
-                <div class="loading">
-                    <div>   
-                        <div class="box-taiji">
-                            <div class="circle-01"></div>
-                            <div class="circle-02"></div>
-                        </div>
-                        <p>少女祈祷中...</p>
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
+    <transition name="fade">
+        <div class="becomeBlack"  @click="asideClose" v-show=ifblack></div>
+    </transition>
+    <!-- loading -->
+    <div class="loading" v-show=true>
+        <div>   
+            <div class="box-taiji">
+                <div class="circle-01"></div>
+                <div class="circle-02"></div>
+            </div>
+            <p>少女祈祷中...</p>
         </div>
     </div>
 </div>
@@ -149,7 +151,7 @@
 <!-- <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <script type="text/javascript" src="./JavaScript/main.js"></script>
 <script type="text/javascript" src="./JavaScript/headUpdate.js"></script>
-<script type="text/javascript" src="./JavaScript/shiming.js"></script>
+<!-- <script type="text/javascript" src="./JavaScript/shiming.js"></script> -->
 <script type="text/javascript" src="./JavaScript/preInfo.js"></script>
 <script type="text/javascript" src="./JavaScript/blackList.js"></script>
 

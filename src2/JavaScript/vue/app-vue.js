@@ -19,9 +19,14 @@
         el:'#tf-home',
         router,
         data:{
-
+          ifblack:false,
         },
         methods:{
-
+          asideOpen:function(){
+            this.ifblack = true;
+          },
+          asideClose:function(){
+            this.ifblack = false;
+          }
         }
     }).$mount('#tf-home')
