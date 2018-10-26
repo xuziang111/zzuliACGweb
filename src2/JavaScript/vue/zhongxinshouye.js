@@ -1,7 +1,7 @@
 let zhongxinshouye = Vue.component('user-center-home-page',{
 
     template:`
-    <div class="tab-pane active" id="tab_1">
+    <div class="" >
     <div class="row">
         <div class="col-md-2">
             <div class="user-head center-block">

@@ -1,6 +1,6 @@
-Vue.component('invite-register',{
+let yaoqingzhuce = Vue.component('invite-register',{
     template:`
-    <div class="tab-pane fade" id="tab_9">
+    <div>
     <div class="row user-msg text-left">
         <div class="user-msg-title">
             <h2><i class="fa fa-user-plus fa-2x"></i> 邀请注册</h2>

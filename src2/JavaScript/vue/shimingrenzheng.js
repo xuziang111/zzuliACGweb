@@ -1,6 +1,6 @@
-Vue.component('certification-id',{
+let shimingrenzheng = Vue.component('certification-id',{
     template:`
-    <div class="tab-pane fade" id="tab_8">
+    <div>
     <div class="row user-msg text-left">
         <div class="user-msg-title">
             <h2><i class="fa fa-user-plus fa-2x"></i> 实名认证</h2>

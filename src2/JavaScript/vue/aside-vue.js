@@ -3,44 +3,33 @@ Vue.component('app-aside',{
     <aside class="col-sm-2 col-md-2 box1">
     <ul class="nav nav-pills nav-stacked navbar-inverse">
         <li><span>个人中心</span></li>
-        <li class="active">
+        <li>
         <router-link to="/zhongxinshouye"><i class="fa fa-fw fa-home"></i> 中心首页 </router-link>
         </li>
         <li>
-            <a href="#tab_2" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user"></i> 我的信息 </a>
+        <router-link to="/wodexinxi"><i class="fa fa-fw fa-user"></i> 我的信息 </router-link>
         </li>
         <li>
-            <a href="#tab_3" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-camera-retro"></i> 我的头像 </a>
+        <router-link to="/wodetouxiang"><i class="fa fa-fw fa-camera-retro"></i> 我的头像 </router-link>
         </li>
         <li>
-        <a href="#tab_4" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-flag"></i> 我的勋章 </a>
+        <router-link to="/wodexunzhang"><i class="fa fa-fw fa-flag"></i> 我的勋章 </router-link>
         </li>
         <li>
-        <a href="#tab_5" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </a>
+        <router-link to="/zhanghaoanquan"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </router-link>
         </li>
         <li>
-        <a href="#tab_6" id="BLanchor" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </a>
+        <router-link to="/heimingdanguanli"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </router-link>
         </li>
         <li>
-        <a href="#tab_7" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </a>
+        <router-link to="/wodejilu"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </router-link>
         </li>
         <li>
-        <a href="#tab_8" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-id-card"></i> 实名认证 </a>
+        <router-link to="/shimingrenzheng"><i class="fa fa-fw fa-id-card"></i> 实名认证 </router-link>
         </li>
         <li>
-        <a href="#tab_9" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </a>
+        <router-link to="/yaoqingrenzheng"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </router-link>
         </li>
-    </ul>
-    <ul class="nav nav-pills nav-stacked navbar-inverse nav-pills-special">
-        <!--<li>-->
-        <!--<a href="#"> 个人空间 </a>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<a href="#"> 创作中心 </a>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<a href="#"> 投稿管理 </a>-->
-        <!--</li>-->
     </ul>
 </aside>
     `

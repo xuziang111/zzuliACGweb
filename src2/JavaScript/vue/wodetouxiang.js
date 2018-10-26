@@ -1,6 +1,6 @@
-Vue.component('my-head',{
+let wodetouxiang = Vue.component('my-head',{
     template:`
-    <div class="tab-pane fade" id="tab_3">
+    <div>
     <div class="row user-msg text-left">
         <div class="user-msg-title"><h2><i class="fa fa-user-o fa-2x"></i> 我的头像</h2></div>
         <div class="line-border"></div>

@@ -1,6 +1,6 @@
-Vue.component('black-list',{
+let heimingdanguanli = Vue.component('black-list',{
     template:`
-    <div class="tab-pane fade" id="tab_6">
+    <div>
     <div class="row user-msg text-left">
         <div class="user-msg-title">
             <h2><i class="fa fa-user-times fa-2x"></i> 黑名单管理</h2>

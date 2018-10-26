@@ -14,16 +14,6 @@ Vue.component('app-main',{
                 <main class="col-sm-10 col-md-10 box2">
                     <div class="tab-content">
                         <router-view></router-view>
-                        <user-center-home-page></user-center-home-page>
-                        <per-inf></per-inf>
-                        <!-- 更换头像 -->
-                        <my-head></my-head>
-                        <my-medal></my-medal>
-                        <account-safe></account-safe>
-                        <black-list></black-list>
-                        <my-record></my-record>
-                        <certification-id></certification-id>
-                        <invite-register></invite-register>
                     </div>
                 </main>
                 <div class="clearfix"></div>
@@ -31,13 +21,13 @@ Vue.component('app-main',{
                 <div class="becomeBlack"></div>
                 <!-- loading -->
                 <div class="loading">
-                        <div>   
+                    <div>   
                         <div class="box-taiji">
                             <div class="circle-01"></div>
                             <div class="circle-02"></div>
                         </div>
                         <p>少女祈祷中...</p>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

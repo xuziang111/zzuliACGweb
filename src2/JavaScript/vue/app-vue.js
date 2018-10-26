@@ -1,6 +1,14 @@
 
     const routes = [
         { path: '/zhongxinshouye', component: zhongxinshouye },
+        { path: '/wodexinxi', component: wodexinxi},
+        { path: '/wodetouxiang', component: wodetouxiang },
+        { path: '/wodexunzhang', component: wodexunzhang },
+        { path: '/zhanghaoanquan', component: zhanghaoanquan },
+        { path: '/heimingdanguanli', component: heimingdanguanli },
+        { path: '/wodejilu', component: wodejilu },
+        { path: '/shimingrenzheng', component: shimingrenzheng },
+        { path: '/yaoqingzhuce', component: yaoqingzhuce }
       ]
 
       const router = new VueRouter({

@@ -1,6 +1,6 @@
-Vue.component('per-inf',{
+let wodexinxi = Vue.component('per-inf',{
     template:`
-    <div class="tab-pane fade" id="tab_2">
+    <div>
     <div class="row user-msg text-left">
         <div class="user-msg-title">
             <h2><i class="fa fa-address-card-o fa-2x"></i> 我的信息</h2>
