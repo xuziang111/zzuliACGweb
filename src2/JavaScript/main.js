@@ -29,7 +29,7 @@ function bindEvent(){
     $(".user-Center-Container").click(function(){
         $('.box1').addClass("active")
     })
-    //小窗口用户中心弹出，底色变暗
+    //小窗口用户中心弹出
  $(".becomeBlack").click(function(){
     $('.box1').removeClass("active")
 })
