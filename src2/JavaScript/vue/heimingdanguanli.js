@@ -23,7 +23,7 @@ let heimingdanguanli = Vue.component('black-list',{
                 </div>
             </div>
             <div class="blackList-item-rt">
-                <button :value="bList.uid" class="btn btn-default" @click="removebl(this)">移除</button>
+                <button :value="bList.uid" class="btn btn-default" @click="removebl">移除</button>
             </div>
         </div>
     </main>
@@ -39,10 +39,33 @@ let heimingdanguanli = Vue.component('black-list',{
     },
     methods:{
         removebl:function(e){
-            console.log(e)
+            let temp = {removeBl:e.target.value}
+            temp= JSON.stringify(temp)
+            $.ajax({
+                type: "post",
+                url: "/removeBlacklist",
+                data: temp, 
+                processData: false,    //false
+                cache: false,    //缓存
+                beforeSend:function(){
+                    $('.loading').addClass("active")
+                },
+                success: function(data){//重新接收数据
+                    console.log('成功移除')
+                    ajaxSuccess(data)      
+                },
+                fail:function(){
+                    console.log('error')
+                },
+                complete:function(){
+                    setTimeout(function(){
+                        $('.loading').removeClass("active")
+                    },1000)
+                }
+            })
         }
     },
-    beforeCreate:function(){//进入黑名单页面时进行加载
+    beforeCreate:function(){//组件创建前执行
         this.bLists ='{"code":200,"message":null,"data":{"total":18,"size":10,"pages":2,"current":1,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
         this.bLists = JSON.parse(this.bLists)
         console.log(this.bLists)
