@@ -29,7 +29,7 @@ let heimingdanguanli = Vue.component('black-list',{
     </main>
     <nav id="bl-nav"aria-label="Page navigation">
         <ul class="pagination">
-            
+        <li :class="page.current" v-for="(page) in bLists.pages"><span :data-page="page.page" href="#">{{page.page}}</span></li>
         </ul>
     </nav>
 </div>
@@ -66,8 +66,35 @@ let heimingdanguanli = Vue.component('black-list',{
         }
     },
     beforeCreate:function(){//组件创建前执行
-        this.bLists ='{"code":200,"message":null,"data":{"total":18,"size":10,"pages":2,"current":1,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
+        this.bLists ='{"code":200,"message":null,"data":{"total":18,"size":10,"pages":10,"current":2,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
         this.bLists = JSON.parse(this.bLists)
+        this.bLists.pages=[]
+        function makeLi(a,b){
+            if(a===b){
+                return {page:a,current:'active'}
+            }
+            return {page:a,current:''}
+        }
+        if(this.bLists.data.pages<5){
+            for(let i=1;i<=this.bLists.data.pages;i++){
+                    this.bLists.pages.push(makeLi(i,this.bLists.data.current))
+                }
+        }else{
+            if(this.bLists.data.pages-this.bLists.data.current>=2&&this.bLists.data.current>=3){
+                for(let i=this.bLists.data.current-2;i<=this.bLists.data.current+2;i++){
+                    this.bLists.pages.push(makeLi(i,this.bLists.data.current))
+                }
+            }else if(this.bLists.data.current<=2){
+                for(let i=1;i<=5;i++){
+                    this.bLists.pages.push(makeLi(i,this.bLists.data.current))
+                }
+            }else{
+                for(let i=this.bLists.data.pages-4;i<=this.bLists.data.pages;i++){
+                    this.bLists.pages.push(makeLi(i,this.bLists.data.current))
+                }
+            }
+        }
+        this.bLists.page = 0
         console.log(this.bLists)
         // ajaxSuccess(this.bLists)
         //     // $('#BLanchor').on('click',function(){
@@ -114,35 +141,6 @@ let heimingdanguanli = Vue.component('black-list',{
         //             },
         //             success: function(data){
         //                 ajaxSuccess(data);      
-        //             },
-        //             fail:function(){
-        //                 console.log('error')
-        //             },
-        //             complete:function(){
-        //                 setTimeout(function(){
-        //                     $('.loading').removeClass("active")
-        //                 },1000)
-        //             }
-        //         })
-        //     }
-        //     })
-        //     //点击移除按钮时
-        //     $("#blackList-content").on("click",function(e){
-        //         if(e.target.tagName === 'BUTTON'){
-        //         let temp = {removeBl:$(e.target).attr('value')}
-        //         temp= JSON.stringify(temp)
-        //         $.ajax({
-        //             type: "post",
-        //             url: "/removeBlacklist",
-        //             data: temp, 
-        //             processData: false,    //false
-        //             cache: false,    //缓存
-        //             beforeSend:function(){
-        //                 $('.loading').addClass("active")
-        //             },
-        //             success: function(data){//重新接收数据
-        //                 console.log('成功移除')
-        //                 ajaxSuccess(data)      
         //             },
         //             fail:function(){
         //                 console.log('error')
