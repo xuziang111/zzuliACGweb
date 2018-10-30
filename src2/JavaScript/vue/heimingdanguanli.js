@@ -29,7 +29,15 @@ let heimingdanguanli = Vue.component('black-list',{
     </main>
     <nav id="bl-nav"aria-label="Page navigation">
         <ul class="pagination">
-        <li :class="page.current" v-for="(page) in bLists.pages"><span :data-page="page.page" href="#">{{page.page}}</span></li>
+            <li :class="this.bLists.pre.state">
+                <span @click="topage" :data-page="this.bLists.pre.page" aria-hidden="true">&laquo;</span>
+            </li>
+
+            <li @click="topage" :class="page.current" v-for="(page) in bLists.pages"><span :data-page="page.page">{{page.page}}</span></li>
+            
+            <li :class="this.bLists.next.state ">
+                <span @click="topage" :data-page="this.bLists.next.page" aria-hidden="true">&raquo;</span>
+            </li>
         </ul>
     </nav>
 </div>
@@ -38,8 +46,9 @@ let heimingdanguanli = Vue.component('black-list',{
         return bLists={}
     },
     methods:{
-        removebl:function(e){
-            let temp = {removeBl:e.target.value}
+        removebl:function(e){//点击移除时
+            let user = document.cookie //读cookie验证用户
+            let temp = {user:user,removeBl:e.target.value}
             temp= JSON.stringify(temp)
             $.ajax({
                 type: "post",
@@ -63,10 +72,41 @@ let heimingdanguanli = Vue.component('black-list',{
                     },1000)
                 }
             })
+        },
+        topage:function(e){//点击页面标签时
+            let user = document.cookie
+            let temp ={page:e.target.dataset.page,user:user}
+            temp = JSON.stringify(temp)
+            $.ajax({
+                type: "post",
+                url: "/loadingBlacklist",
+                data: temp, 
+                processData: false,    //false
+                cache: false,    //缓存
+                beforeSend:function(){
+                    console.log(this.$options.methods)
+                    $('.loading').addClass("active")
+                }.bind(this),
+                success: function(data){
+                    ajaxSuccess(data);      
+                },
+                fail:function(){
+                    console.log('error')
+                },
+                complete:function(){
+                    setTimeout(function(){
+                        $('.loading').removeClass("active")
+                    },1000)
+                }
+            })
+        },
+        ajaxSuccess:function(){
+            return 
         }
     },
     beforeCreate:function(){//组件创建前执行
-        this.bLists ='{"code":200,"message":null,"data":{"total":18,"size":10,"pages":10,"current":2,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
+        console.log(this.$options.methods)
+        this.bLists ='{"code":200,"message":null,"data":{"total":18,"size":10,"pages":10,"current":5,"records":[{"uid":1,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
         this.bLists = JSON.parse(this.bLists)
         this.bLists.pages=[]
         function makeLi(a,b){
@@ -74,6 +114,18 @@ let heimingdanguanli = Vue.component('black-list',{
                 return {page:a,current:'active'}
             }
             return {page:a,current:''}
+        }
+        this.bLists.pre={}
+        this.bLists.next={}
+        if(this.bLists.data.current===1){
+            this.bLists.pre.state = "disabled"
+            this.bLists.next.page = this.bLists.data.current+1
+        }else if(this.bLists.data.current===this.bLists.data.pages){
+            this.bLists.next.state = "disabled"
+            this.bLists.pre.page = this.bLists.data.current-1
+        }else{
+            this.bLists.pre.page = this.bLists.data.current-1
+            this.bLists.next.page = this.bLists.data.current+1
         }
         if(this.bLists.data.pages<5){
             for(let i=1;i<=this.bLists.data.pages;i++){

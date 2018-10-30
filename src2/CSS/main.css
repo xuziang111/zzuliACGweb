@@ -4,6 +4,12 @@ body,html {
     /*color:#5a5a5a;*/
     box-sizing: border-box
 }
+button{
+    outline:none!important;
+}
+button:focus{
+    outline: 0!important;
+}
 .user-msg-title > h2{
     font-size:20px;
 }
