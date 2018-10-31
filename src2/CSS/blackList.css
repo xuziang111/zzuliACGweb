@@ -29,3 +29,15 @@
 .blackList-item-lt>div{
     min-width:60px;
 }
+.topage{
+    width:40px;
+    height:33.8px;
+    margin-left:20px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}

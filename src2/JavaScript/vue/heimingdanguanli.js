@@ -38,13 +38,18 @@ let heimingdanguanli = Vue.component('black-list',{
             <li :class="this.bLists.next.state ">
                 <span @click="topage" :data-page="this.bLists.next.page" aria-hidden="true">&raquo;</span>
             </li>
+            <li>
+                <input type="number" placeholder="page" v-model.number="bLists.data.currentcopy" class="topage" @keyup.enter="topage(bLists.data.currentcopy)"> 
+            </li>
         </ul>
+        
     </nav>
 </div>
     `,
     data:function(){
         return {bLists:{
             data:{
+                currentcopy:null,
                 current:1,
                 pages:5,
                 size:10,
@@ -108,7 +113,14 @@ let heimingdanguanli = Vue.component('black-list',{
         },
         topage:function(e){//点击页面标签时
             let user = document.cookie
-            let temp ={page:e.target.dataset.page,user:user}
+            let temp={}
+            console.log(typeof(e))
+            if(typeof(e) === "number"){//创建时和直接输入页码时传入数字
+                temp ={page:e,user:user}
+            }else{
+                temp ={page:e.target.dataset.page,user:user}
+            }
+            console.log(temp)
             let _self = this
             temp = JSON.stringify(temp)
             $.ajax({
@@ -118,7 +130,6 @@ let heimingdanguanli = Vue.component('black-list',{
                 processData: false,    //false
                 cache: false,    //缓存
                 beforeSend:function(){//用来测试列表是否会被更改，上线时移到success中
-                    console.log('xxx')
                     _self.ajaxSuccess('{"code":200,"message":null,"data":{"total":18,"size":10,"pages":10,"current":2,"records":[{"uid":100,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2019-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}')
                     $('.loading').addClass("active")
                 }.bind(this),
@@ -134,14 +145,12 @@ let heimingdanguanli = Vue.component('black-list',{
                     },1000)
                 }
             })
-            setTimeout(function(){console.log(this.bLists),100000})
         },
         ajaxSuccess:function(xxx){
-            let temp
-            console.log(this.bLists)
-            xxx?temp=xxx:temp ='{"code":200,"message":null,"data":{"total":18,"size":10,"pages":10,"current":1,"records":[{"uid":100,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2019-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
+            let temp = xxx
             this.bLists = Object.assign({}, this.bLists, JSON.parse(temp))
-            this.bLists.pages=[]
+            this.bLists.pages = []
+            // this.bLists.data.currentcopy = this.bLists.data.current
             console.log(this.bLists)
             function makeLi(a,b){
                 if(a===b){
@@ -187,13 +196,7 @@ let heimingdanguanli = Vue.component('black-list',{
         }
     },
     created:function(){//组件创建完成后进行一次到第一面的函数
-        let temp={
-            target:{
-                dataset:{
-                    page:1
-                }
-            }   
-        }
+        let temp = 1
         this.topage(temp)
     }
 })
