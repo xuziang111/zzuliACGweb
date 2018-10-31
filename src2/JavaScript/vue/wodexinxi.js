@@ -10,39 +10,39 @@ let wodexinxi = Vue.component('per-inf',{
         <div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label" for="username">昵称：</label>
-                <input class="form-control" type="text" id="username" placeholder="昵称">
+                <input class="form-control" v-model="username" type="text" id="username" placeholder="昵称">
             </div>
             <!-- 个性签名做处理防止xml注入 -->
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label" for="usermotto">个性签名：</label>
-                <input class="form-control" type="text" id="usermotto" placeholder="个性签名">
+                <input class="form-control" v-model="usermotto" type="text" id="usermotto" placeholder="个性签名">
             </div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label" for="Birthday">出生日期：</label>
-                <input class="form-control" type="date" id="Birthday" placeholder="如：1998-05-25">
+                <input class="form-control" v-model="Birthday" type="date" id="Birthday" placeholder="如：1998-05-25">
             </div>
             <div class="form-group form-group-sm sex-radio-container">
                 用户性别? XiuJi?：
-                <label class="radio-inline">
-                     <input type="radio" name="sex" id="inlineRadio1" value="1" hidden> 
+                <label class="radio-inline" :class="sexselect[0]">
+                     <input @click="sexclick" type="radio" v-model="sex" name="sex" id="inlineRadio1" value="0" hidden> 
                      <span class="sex-btn">猛汉</span>
                 </label>
-                <label class="radio-inline">
-                    <input type="radio" name="sex" id="inlineRadio2" value="2"> 
+                <label class="radio-inline" :class="sexselect[1]">
+                    <input @click="sexclick" type="radio" v-model="sex" name="sex" id="inlineRadio2" value="1"> 
                     <span class="sex-btn">萌妹</span>
                 </label>
-                <label class="radio-inline">
-                    <input type="radio" name="sex" id="inlineRadio2" value="3" checked> 
+                <label class="radio-inline" :class="sexselect[2]">
+                    <input @click="sexclick" type="radio" v-model="sex" name="sex" id="inlineRadio2" value="2"> 
                     <span class="sex-btn">保密</span>
                 </label>
             </div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label">上次登录IP：</label>
-                    <input class="form-control" type="text" id="FromIP" placeholder="127.0.0.1" readonly>
+                    <input class="form-control" v-model="ip" type="text" id="FromIP" placeholder="127.0.0.1" readonly>
             </div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label" for="identity">用户身份：</label>
-                    <input class="form-control" type="text" id="identity" placeholder="校外人士" readonly>
+                    <input class="form-control" v-model="identity" type="text" id="identity" placeholder="校外人士" readonly>
             </div>
             <button id="false-id-sumbit" class="btn btn-default">保存</button>
             <!-- <div class="form-group form-group-sm active">
@@ -61,16 +61,35 @@ let wodexinxi = Vue.component('per-inf',{
     </div>
 </div>
     `,
-    mounted:function(){
-        $(".radio-inline").on("click",function(e){
-            console.log(e.target.tagName)
+    data:function(){
+        return{
+            username:'啦啦啦',
+            usermotto:'个性签名',
+            Birthday:'1970-01-01',
+            sex:2,
+            sexselect:['','','active'],
+            ip:'127.0.0.1',
+            identity:'校外人士'
+        }
+    },
+    methods:{
+        sexclick:function(e){//高亮选中按钮与更改选中的值
             if(e.target.tagName === "INPUT"){
-                let xxx = $(e.target).parent();
-                console.log($(e.target).parent());
-                xxx.addClass("active").siblings().removeClass("active"); 
-                console.log($("input[name='sex']:checked").val())
-             }
-        })
+                console.log(e)
+                console.log(e.target.value)
+                for(let i=0;i<this.sexselect.length;i++){
+                    if(i === parseInt(e.target.value)){
+                        console.log('xxx')
+                        this.sexselect[i] = 'active'
+                        this.sex=i
+                    }else{
+                        this.sexselect[i] = ''
+                    }
+                }
+            }
+        }
+    },
+    mounted:function(){
         $("#false-id-sumbit").on("click",function(){
             // let tempForm = new FormData();
             let data ={}
