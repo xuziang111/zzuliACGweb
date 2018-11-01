@@ -1,5 +1,6 @@
 
     const routes = [
+        { path: '/', component: zhongxinshouye },
         { path: '/zhongxinshouye', component: zhongxinshouye },
         { path: '/wodexinxi', component: wodexinxi},
         { path: '/wodetouxiang', component: wodetouxiang },
