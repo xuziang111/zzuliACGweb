@@ -91,10 +91,9 @@ let wodexinxi = Vue.component('per-inf',{
             }
         },
         upload:function(){
-            console.log('')
             if(this.userdata.username){
-                if(!(/^[\u4e00-\u9fa5_a-zA-Z0-9]{2,8}$/ig.test(this.userdata.username))){
-                    alert('昵称只能输入2-8位英文、数字、汉字或_组合')
+                if(!(/^([\w]|[\u4e00-\u9fa5]|_){4,16}$/ig.test(this.userdata.username))){
+                    alert('昵称只能输入4-16位英文、数字、汉字或_组合')
                     return
                 }
             }else{
