@@ -61,36 +61,9 @@ let zhanghaoanquan = Vue.component('account-safe',{
         }
     },
     methods:{
-        // ajaxsuccess:function(data){
-        //     this.userdata=Object.assign({}, this.userdata,data)
-        //     console.log(this.userdata)
 
-        //     if(this.userdata.email.if != 1){
-        //         this.userdata.email.emailvalue="未绑定邮箱"
-        //     }
-        //     if(this.userdata.phone.if != 1){
-        //         this.userdata.phone.phonevalue="未绑定手机"
-        //     }
-        //     if(this.userdata.password.if != 1){
-        //         this.userdata.password.passwordvalue="未设置密码"
-        //     }else{
-        //         this.userdata.password.passwordvalue="已设置密码"
-        //     }
-        //     if(this.userdata.question.if != 1){
-        //         this.userdata.question.questiondvalue="未设置密保问题"
-        //     }else{
-        //         this.userdata.question.questiondvalue="已设置密保问题"
-        //     }
-        //     if(this.userdata.certification.if != 1){
-        //         this.userdata.certification.certificationvalue="未实名认证"
-        //     }else{
-        //         this.userdata.certification.certificationvalue="已实名认证"
-        //     }
-        // }
     },
     mounted:function(){
         this.userdata=Object.assign({}, this.userdata,this.usersafedata)
-        console.log(this.usersafedata)
-        console.log(this.userdata)
     }
 })

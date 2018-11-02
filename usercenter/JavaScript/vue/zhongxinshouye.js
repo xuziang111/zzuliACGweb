@@ -1,5 +1,5 @@
 let zhongxinshouye = Vue.component('user-center-home-page',{
-
+    props:['usersafedata'],
     template:`
     <div class="" >
     <div class="row">

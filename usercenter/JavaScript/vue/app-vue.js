@@ -21,6 +21,7 @@
         router,
         data:{
           ifblack:false,
+          ifloading:true,
           usersafedata:{
               email:{if:1,emailvalue:"example@email.com"},
               phone:{if:1,phonevalue:13312345678},
@@ -35,6 +36,12 @@
           },
           asideClose:function(){
             this.ifblack = false;
+          },
+          loadingOpen:function(){
+            this.ifloading = true;
+          },
+          loadingClose:function(){
+            this.ifloading = false;
           },
           ajaxsuccess:function(data){
             this.usersafedata=Object.assign({}, this.usersafedata,data)
@@ -86,7 +93,7 @@
             },
             complete:function(){
                 setTimeout(function(){
-                    $('.loading').removeClass("active")
+                  _self.loadingClose()
                 },1000)
             }
       })
