@@ -20,7 +20,7 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
                         <div class="progress-bar progress-bar-striped active" style="width:6%"></div>
                     </div>
                 </div>
-                <a class="btn btn-user" href="#" role="button">修改资料</a>
+                <router-link to="/wodexinxi" class="btn btn-user"> 修改资料</router-link>
                 <a class="btn btn-user" href="#" role="button">个人空间</a>
             </div>
         </div>
@@ -29,7 +29,7 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
     <div class="row user-msg text-left">
         <div class="user-msg-title">
             <span>账号状态</span>
-            <a href="#" class="btn btn-user btn-xs">更多设置</a>
+            <router-link class="btn btn-user btn-xs" to="/zhanghaoanquan"><i class="fa fa-fw fa-user-secret"></i> 更多设置 </router-link>
         </div>
         <div class="col-sm-6 col-md-6">
             <div class="user-msg-th">
@@ -104,7 +104,15 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
     </div>
 </div>
     `,
-    beforeCreate() {
-        //从后台拿信息
+    data:function(){
+        return{
+
+        }
+    },
+    methods:{
+
+    },
+    created() {
+ 
     },
 })
