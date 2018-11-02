@@ -1,4 +1,5 @@
 let wodetouxiang = Vue.component('my-head',{
+    props:['userdata'],
     template:`
     <div>
     <div class="row user-msg text-left">
@@ -7,7 +8,7 @@ let wodetouxiang = Vue.component('my-head',{
     </div>
     <div class="text-center">
         <div class="user-head">
-            <img src="Images/head.jpg" class="img-circle"  width="105" height="105"/>
+            <img :src="userdata.userheadimg" class="img-circle"  width="105" height="105"/>
         </div>
         <div class="cas-container">
             <div id="img-container">

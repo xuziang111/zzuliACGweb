@@ -22,12 +22,21 @@
         data:{
           ifblack:false,
           ifloading:true,
-          usersafedata:{
-              email:{if:1,emailvalue:"example@email.com"},
-              phone:{if:1,phonevalue:13312345678},
-              password:{if:0,passwordvalue:"已设置"},
-              question:{if:0,questionvalue:"未设置密保问题"},
-              certification:{if:0,certificationvalue:"未实名认证"}
+          userdata:{//里面的默认填的信息为从后台获取失败时会显示的内容
+            username:'用户名',//用户名
+            userid:'8080',//用户id
+            usermotto:'个性签名',//没有就返回空
+            userheadimg:'Images/head.jpg',//用户头像
+            emailif:1,//判断邮箱是否存在，0不存在，1存在，下面if同理
+            emailvalue:"example@email.com",//若存在返回邮箱exa***@qq.com,不存在返回空值
+            phoneif:1,
+            phonevalue:13312345678,//手机号同邮箱
+            passwordifif:1,
+            passwordvalue:"已设置",//占位，不用传
+            questionif:0,
+            questionvalue:"未设置密保问题",//占位，不用传
+            certificationif:0,
+            certificationvalue:"未实名认证"//占位，不用传
             } 
         },
         methods:{
@@ -44,38 +53,38 @@
             this.ifloading = false;
           },
           ajaxsuccess:function(data){
-            this.usersafedata=Object.assign({}, this.usersafedata,data)
-            console.log(this.usersafedata)
+            // let temp=JSON.parse(data)
+            this.userdata=Object.assign({}, this.userdata,data)
 
-            if(this.usersafedata.email.if != 1){
-                this.usersafedata.email.emailvalue="未绑定邮箱"
+            if(this.userdata.emailif != 1){
+                this.userdata.emailvalue="未绑定邮箱"
             }
-            if(this.usersafedata.phone.if != 1){
-                this.usersafedata.phone.phonevalue="未绑定手机"
+            if(this.userdata.phoneif != 1){
+                this.userdata.phonevalue="未绑定手机"
             }
-            if(this.usersafedata.password.if != 1){
-                this.usersafedata.password.passwordvalue="未设置密码"
+            if(this.userdata.passwordif != 1){
+                this.userdata.passwordvalue="未设置密码"
             }else{
-                this.usersafedata.password.passwordvalue="已设置密码"
+                this.userdata.passwordvalue="已设置密码"
             }
-            if(this.usersafedata.question.if != 1){
-                this.usersafedata.question.questiondvalue="未设置密保问题"
+            if(this.userdata.questionif != 1){
+                this.userdata.questiondvalue="未设置密保问题"
             }else{
-                this.usersafedata.question.questiondvalue="已设置密保问题"
+                this.userdata.questiondvalue="已设置密保问题"
             }
-            if(this.usersafedata.certification.if != 1){
-                this.usersafedata.certification.certificationvalue="未实名认证"
+            if(this.userdata.certificationif != 1){
+                this.userdata.certificationvalue="未实名认证"
             }else{
-                this.usersafedata.certification.certificationvalue="已实名认证"
+                this.userdata.certificationvalue="已实名认证"
             }
         }
         },
         created:function(){
         //从后台拿信息
         let user = document.cookie
-        _self = this
-        console.log(_self.usersafedata)
-        console.log(_self)
+        _temp = this
+        console.log(_temp.userdata)
+        console.log(_temp)
         $.ajax({
             type: "post",
             url: "/downloadpreson",
@@ -83,18 +92,19 @@
             processData: false,    //false
             cache: false,    //缓存
             beforeSend:function(){
-                _self.ajaxsuccess(_self.usersafedata)
+              console.log(_temp)
+              _temp.loadingOpen()
+              _temp.ajaxsuccess(_temp.userdata)
             },
             success: function(data){
-                //_self.ajaxsuccess(data)     
+              //_temp.ajaxsuccess(data)     
             },
             fail:function(){
-                console.log('error')
+              console.log('请刷新页面重试')
             },
             complete:function(){
-                setTimeout(function(){
-                  _self.loadingClose()
-                },1000)
+              console.log(_temp)
+              _temp.loadingClose()
             }
       })
         },

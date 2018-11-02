@@ -70,10 +70,13 @@
                 <div class="user-Center-Container" @click="asideOpen">
                     <span class="glyphicon glyphicon-chevron-right user-Center" aria-hidden="true"></span>
                 </div>
+                <!-- ，详细内容见aside-vue -->
                 <app-aside @click-aside="asideClose"></app-aside>
                 <main class="col-sm-10 col-md-10 box2">
                     <div class="">
-                        <router-view :usersafedata="usersafedata"></router-view>
+                        <!-- 渲染主要内容的地方 详细内容见app-vue和里面指向的各个文件-->
+                        <router-view :userdata="userdata"></router-view>
+                    
                     </div>
                 </main>
                 <div class="clearfix"></div>
@@ -81,10 +84,11 @@
             </div>
         </div>
     </div>
+    <!-- transition，vue自带动画，像素小于768px开始出现侧栏 -->
     <transition name="fade">
         <div class="becomeBlack"  @click="asideClose" v-show=ifblack></div>
     </transition>
-    <!-- loading -->
+    <!-- loading画面，进入页面和上传信息时出现 -->
     <div class="loading" v-show=ifloading>
         <div>   
             <div class="box-taiji">
@@ -150,10 +154,6 @@
 <script src="./JavaScript/vue/app-vue.js"></script>
 <!-- <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <script type="text/javascript" src="./JavaScript/main.js"></script>
-<!-- <script type="text/javascript" src="./JavaScript/headUpdate.js"></script> -->
-<!-- <script type="text/javascript" src="./JavaScript/shiming.js"></script> -->
-<!-- <script type="text/javascript" src="./JavaScript/preInfo.js"></script> -->
-<!-- <script type="text/javascript" src="./JavaScript/blackList.js"></script> -->
 
 <!--*********************************************************************************************-->
 <!--此处追加你要增加的外部JS文件标签，start-->
