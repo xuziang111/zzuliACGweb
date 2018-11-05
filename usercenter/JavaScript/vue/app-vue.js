@@ -31,7 +31,7 @@
             emailvalue:"example@email.com",//若存在返回邮箱exa***@qq.com,不存在返回空值
             phoneif:1,
             phonevalue:13312345678,//手机号同邮箱
-            passwordifif:1,
+            passwordif:1,
             passwordvalue:"已设置",//占位，不用传
             questionif:0,
             questionvalue:"未设置密保问题",//占位，不用传

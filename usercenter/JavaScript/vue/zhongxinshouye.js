@@ -111,7 +111,7 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
             }
         }
     },
-    created() {
+    created:function(){
         console.log(this.userdata)
         if(this.userdata.emailif == 1){
             this.userbasedata.email="已绑定"
