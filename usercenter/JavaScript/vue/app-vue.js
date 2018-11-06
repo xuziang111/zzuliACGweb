@@ -41,7 +41,9 @@
             sex:2,
             sexselect:['','',''],
             ip:'127.0.0.1',
-            identity:'校外人士'
+            identity:'校外人士',
+            truename:'*哈哈',
+            idcard:'41***************3',
           } 
         },
         methods:{

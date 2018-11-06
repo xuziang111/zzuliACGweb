@@ -2,6 +2,7 @@ let shimingrenzheng = Vue.component('certification-id',{
     props:['userdata'],
     template:`
     <div>
+    <div v-if=!this.userdatatemp.authenticated>
     <div class="row user-msg text-left">
         <div class="user-msg-title">
             <h2><i class="fa fa-user-plus fa-2x"></i> 实名认证</h2>
@@ -25,7 +26,7 @@ let shimingrenzheng = Vue.component('certification-id',{
         </div>
     </div>
     <main>
-            <label for="true-name">真实姓名：<input type="text" id="true-name" name="true-name"></label>
+        <label for="true-name">真实姓名：<input type="text" id="true-name" name="true-name"></label>
         <select name="itype" id="itype">
             <option value="0">身份证</option>
             <option value="1">港澳居民来往内地通行证</option>
@@ -65,17 +66,30 @@ let shimingrenzheng = Vue.component('certification-id',{
         </div>
     </div>
     <button id="true-id-sumbit" class="btn btn-default">上传</button>
-</div>
+    </div>
+    <div v-if=this.userdatatemp.authenticated>
+        <div><h3>您已通过了实名认证</h3></div>
+        <div>
+            <p><span>真实姓名：</span>{{this.userdata.truename}}</p>
+            <p><span>证号号码：</span>{{this.userdata.idcard}}</p>
+        </div>
+    </div>
+    </div>
     `,
     data:function(){
         return{
-            aaa:1
+            userdatatemp:{
+                authenticated:false
+            }
         }
     },
     methods:{
 
     },
-    mounted:function(){
+    created:function(){
+        if(this.userdata.certificationif == 1){
+            this.userdatatemp.authenticated = true
+        }
     replaceImg("#input-idcard-obverse",'#idcard-obverse')
     replaceImg("#input-idcard-reverse",'#idcard-reverse')
     let imageList={}
