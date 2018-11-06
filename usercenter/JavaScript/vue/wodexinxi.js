@@ -11,39 +11,39 @@ let wodexinxi = Vue.component('per-inf',{
         <div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label" for="username">昵称：</label>
-                <input class="form-control" v-model="userdata.username" type="text" id="username" placeholder="昵称">
+                <input class="form-control" v-model="userdatatemp.username" type="text" id="username" placeholder="昵称">
             </div>
             <!-- 个性签名做处理防止xml注入 -->
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label" for="usermotto">个性签名：</label>
-                <input class="form-control" v-model="userdata.usermotto" type="text" id="usermotto" placeholder="个性签名">
+                <input class="form-control" v-model="userdatatemp.usermotto" type="text" id="usermotto" placeholder="个性签名">
             </div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label" for="birthday">出生日期：</label>
-                <input class="form-control" v-model="userdata.birthday" type="date" id="birthday" placeholder="如：1998-05-25">
+                <input class="form-control" v-model="userdatatemp.birthday" type="date" id="birthday" placeholder="如：1998-05-25">
             </div>
             <div class="form-group form-group-sm sex-radio-container">
                 用户性别? XiuJi?：
-                <label class="radio-inline" :class="userdata.sexselect[0]">
-                     <input @click="sexclick" type="radio" v-model="userdata.sex" name="sex" id="inlineRadio1" value="0" hidden> 
+                <label class="radio-inline" :class="userdatatemp.sexselect[0]">
+                     <input @click="sexclick" type="radio" v-model="userdatatemp.sex" name="sex" id="inlineRadio1" value="0"> 
                      <span class="sex-btn">猛汉</span>
                 </label>
-                <label class="radio-inline" :class="userdata.sexselect[1]">
-                    <input @click="sexclick" type="radio" v-model="userdata.sex" name="sex" id="inlineRadio2" value="1"> 
+                <label class="radio-inline" :class="userdatatemp.sexselect[1]">
+                    <input @click="sexclick" type="radio" v-model="userdatatemp.sex" name="sex" id="inlineRadio2" value="1"> 
                     <span class="sex-btn">萌妹</span>
                 </label>
-                <label class="radio-inline" :class="userdata.sexselect[2]">
-                    <input @click="sexclick" type="radio" v-model="userdata.sex" name="sex" id="inlineRadio2" value="2"> 
+                <label class="radio-inline" :class="userdatatemp.sexselect[2]">
+                    <input @click="sexclick" type="radio" v-model="userdatatemp.sex" name="sex" id="inlineRadio2" value="2"> 
                     <span class="sex-btn">保密</span>
                 </label>
             </div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label">上次登录IP：</label>
-                    <input class="form-control" v-model="userdata.ip" type="text" id="FromIP" placeholder="127.0.0.1" readonly>
+                    <input class="form-control" v-model="userdatatemp.ip" type="text" id="FromIP" placeholder="127.0.0.1" readonly>
             </div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-2 control-label" for="identity">用户身份：</label>
-                    <input class="form-control" v-model="userdata.identity" type="text" id="identity" placeholder="校外人士" readonly>
+                    <input class="form-control" v-model="userdatatemp.identity" type="text" id="identity" placeholder="校外人士" readonly>
             </div>
             <button @click="upload" id="false-id-sumbit" class="btn btn-default">保存</button>
             <!-- <div class="form-group form-group-sm active">
@@ -64,8 +64,14 @@ let wodexinxi = Vue.component('per-inf',{
     `,
     data:function(){
         return{
-            usertempdata:{
-                sexselect:['','','']
+            userdatatemp:{
+                username:'',
+                usermotto:'',
+                sexselect:['','',''],
+                sex:'',
+                ip:'',
+                birthday:'',
+                identity:'',
             },
         }
     },
@@ -74,20 +80,20 @@ let wodexinxi = Vue.component('per-inf',{
             if(e.target.tagName === "INPUT"){
                 console.log(e)
                 console.log(e.target.value)
-                for(let i=0;i<this.userdata.sexselect.length;i++){
+                for(let i=0;i<this.userdatatemp.sexselect.length;i++){
                     if(i === parseInt(e.target.value)){
                         console.log('xxx')
-                        this.userdata.sexselect[i] = 'active'
-                        this.userdata.sex=i
+                        this.userdatatemp.sexselect[i] = 'active'
+                        this.userdatatemp.sex=i
                     }else{
-                        this.userdata.sexselect[i] = ''
+                        this.userdatatemp.sexselect[i] = ''
                     }
                 }
             }
         },
         upload:function(){
-            if(this.userdata.username){
-                if(!(/^([\w]|[\u4e00-\u9fa5]|_){4,16}$/ig.test(this.userdata.username))){
+            if(this.userdatatemp.username){
+                if(!(/^([\w]|[\u4e00-\u9fa5]|_){4,16}$/ig.test(this.userdatatemp.username))){
                     alert('昵称只能输入4-16位英文、数字、汉字或_组合')
                     return
                 }
@@ -96,7 +102,7 @@ let wodexinxi = Vue.component('per-inf',{
                 return
             }
             let user = document.cookie
-            let data={user:user,username:this.userdata.username,usermotto:this.userdata.usermotto,birthday:this.userdata.birthday,sex:this.userdata.sex}
+            let data={user:user,username:this.userdatatemp.username,usermotto:this.userdatatemp.usermotto,birthday:this.userdatatemp.birthday,sex:this.userdatatemp.sex}
             $.ajax({
                 type: "post",
                 url: "/uploadpreson",
@@ -122,6 +128,12 @@ let wodexinxi = Vue.component('per-inf',{
         }
     },
     created:function(){
-        console.log(this.useredata)
+        this.userdatatemp.username = this.userdata.username
+        this.userdatatemp.usermotto = this.userdata.usermotto
+        this.userdatatemp.sex = this.userdata.sex
+        this.userdatatemp.ip = this.userdata.ip
+        this.userdatatemp.birthday = this.userdata.birthday
+        this.userdatatemp.identity = this.userdata.identity
+        this.userdatatemp.sexselect[this.userdatatemp.sex] = 'active'
     }
 })

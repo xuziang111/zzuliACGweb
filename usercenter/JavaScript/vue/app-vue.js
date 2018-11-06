@@ -42,7 +42,7 @@
             sexselect:['','',''],
             ip:'127.0.0.1',
             identity:'校外人士'
-            } 
+          } 
         },
         methods:{
           asideOpen:function(){
