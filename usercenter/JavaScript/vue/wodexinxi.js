@@ -138,7 +138,7 @@ let wodexinxi = Vue.component('per-inf',{
             beforeSend:function(){
                 _self.userdata = Object.assign({}, _self.userdata, JSON.parse('{"username":"哈哈哈","usermotto":"个性签名2","birthday":"1971-01-01","sex":"2"}'))
                 _self.userdata.sexselect[_self.userdata.sex] = 'active'
-
+                _temp.$emit('loading-open')
             },
             success: function(data){
                 console.log(data);      
@@ -147,9 +147,7 @@ let wodexinxi = Vue.component('per-inf',{
                 console.log('error')
             },
             complete:function(){
-                setTimeout(function(){
-                    $('.loading').removeClass("active")
-                },1000)
+                _temp.$emit('loading-close')
             }
       })
     }

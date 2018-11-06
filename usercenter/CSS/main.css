@@ -340,6 +340,7 @@ img {
     width:145px;
     height:145px;
     overflow: hidden;
+    background:grey;
 }
 @media (max-width: 768px){
     .img-preview {

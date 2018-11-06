@@ -23,15 +23,15 @@ let zhanghaoanquan = Vue.component('account-safe',{
     `,
     data:function(){
         return {
-            userdatatemp:[{
+            userdatatemp:[{//邮箱
                 lt:'绑定邮箱',value:' ',rt:' ',classname:'xxx'
-            },{
+            },{//电话
                 lt:' ',value:' ',rt:' ',classname:' '
-            },{
+            },{//密码
                 lt:' ',value:' ',rt:' ',classname:' '
-            },{ 
+            },{ //密保
                 lt:' ',value:' ',rt:' ',classname:' '
-            },{
+            },{//实名
                 lt:' ',value:' ',rt:' ',classname:''
             }]
             }
@@ -87,7 +87,7 @@ let zhanghaoanquan = Vue.component('account-safe',{
         if(this.userdata.certificationif != 1){
             this.userdatatemp[4].value="未实名认证"
             this.userdatatemp[4].rt="查看认证"
-            this.userdatatemp[4].classname="fa fa-fw fa-check-circle"
+            this.userdatatemp[4].classname="fa fa-fw fa-exclamation-circle"
         }else{
             this.userdatatemp[4].value="已实名认证"
             this.userdatatemp[4].rt="未认证"
