@@ -36,7 +36,12 @@
             questionif:0,
             questionvalue:"未设置密保问题",//占位，不用传
             certificationif:0,
-            certificationvalue:"未实名认证"//占位，不用传
+            certificationvalue:"未实名认证",//占位，不用传
+            birthday:'1990-01-01',
+            sex:2,
+            sexselect:['','',''],
+            ip:'127.0.0.1',
+            identity:'校外人士'
             } 
         },
         methods:{

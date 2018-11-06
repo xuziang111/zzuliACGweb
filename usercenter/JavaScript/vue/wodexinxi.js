@@ -1,4 +1,5 @@
 let wodexinxi = Vue.component('per-inf',{
+    props:['userdata'],
     template:`
     <div>
     <div class="row user-msg text-left">
@@ -63,14 +64,8 @@ let wodexinxi = Vue.component('per-inf',{
     `,
     data:function(){
         return{
-            userdata:{
-                username:'啦啦啦',
-                usermotto:'个性签名',
-                birthday:'1970-01-01',
-                sex:2,
-                sexselect:['','',''],
-                ip:'127.0.0.1',
-                identity:'校外人士'
+            usertempdata:{
+                sexselect:['','','']
             },
         }
     },
@@ -127,28 +122,6 @@ let wodexinxi = Vue.component('per-inf',{
         }
     },
     created:function(){
-        let user = document.cookie
-        _self = this
-        $.ajax({
-            type: "post",
-            url: "/downloadpreson",
-            data:user,
-            processData: false,    //false
-            cache: false,    //缓存
-            beforeSend:function(){
-                _self.userdata = Object.assign({}, _self.userdata, JSON.parse('{"username":"哈哈哈","usermotto":"个性签名2","birthday":"1971-01-01","sex":"2"}'))
-                _self.userdata.sexselect[_self.userdata.sex] = 'active'
-                _temp.$emit('loading-open')
-            },
-            success: function(data){
-                console.log(data);      
-            },
-            fail:function(){
-                console.log('error')
-            },
-            complete:function(){
-                _temp.$emit('loading-close')
-            }
-      })
+        console.log(this.useredata)
     }
 })

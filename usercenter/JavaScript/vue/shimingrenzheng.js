@@ -1,4 +1,5 @@
 let shimingrenzheng = Vue.component('certification-id',{
+    props:['userdata'],
     template:`
     <div>
     <div class="row user-msg text-left">
@@ -66,9 +67,16 @@ let shimingrenzheng = Vue.component('certification-id',{
     <button id="true-id-sumbit" class="btn btn-default">上传</button>
 </div>
     `,
+    data:function(){
+        return{
+            aaa:1
+        }
+    },
+    methods:{
 
+    },
     mounted:function(){
-        replaceImg("#input-idcard-obverse",'#idcard-obverse')
+    replaceImg("#input-idcard-obverse",'#idcard-obverse')
     replaceImg("#input-idcard-reverse",'#idcard-reverse')
     let imageList={}
     function replaceImg(a,b){
