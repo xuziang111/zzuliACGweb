@@ -26,8 +26,8 @@ let shimingrenzheng = Vue.component('certification-id',{
         </div>
     </div>
     <main>
-        <label for="true-name">真实姓名：<input type="text" id="true-name" name="true-name"></label>
-        <select name="itype" id="itype">
+        <label for="true-name">真实姓名：<input type="text" v-model=this.userdatatemp.truename name="true-name"></label>
+        <select name="itype" v-model=this.userdatatemp.itype>
             <option value="0">身份证</option>
             <option value="1">港澳居民来往内地通行证</option>
             <option value="2">台湾居民来往大陆通行证</option>
@@ -35,15 +35,15 @@ let shimingrenzheng = Vue.component('certification-id',{
             <option value="4">护照(外国签发)</option>
             <option value="5">外国人永久居留证</option>
         </select>
-        <label for="id-number">证件号：<input type="text" id="id-number" name="id-number"></label>
+        <label for="id-number">证件号：<input type="text" v-model=this.userdatatemp.idcard name="id-number"></label>
         <div>
             <div id="idcard-obverse-container" class="idcard-container">
                 <p>正面</p>
-                <img id="idcard-obverse" src="Images/head-zhanwei.png">
+                <img id="idcard-obverse" :src="this.userdatatemp.idcardobverse">
             </div>
             <div class="btn-container">
                 <label class="btn btn-primary btn-upload" for="input-idcard-obverse" title="Upload image file">
-                    <input type="file" class="sr-only" id="input-idcard-obverse" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                    <input @change="selectimg" type="file" class="sr-only" id="input-idcard-obverse" name="idcardobverse" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
                     <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Import image with Blob URLs">
                      选择图片<span class="fa fa-upload"></span>
                     </span>
@@ -54,11 +54,11 @@ let shimingrenzheng = Vue.component('certification-id',{
     <div>
         <div id="idcard-reverse-container" class="idcard-container">
             <p>反面</p>
-            <img id="idcard-reverse" src="Images/head-zhanwei.png">
+            <img id="idcard-reverse" :src="this.userdatatemp.idcardreverse">
         </div>
         <div class="btn-container">
            <label class="btn btn-primary btn-upload" for="input-idcard-reverse" title="Upload image file">
-                <input type="file" class="sr-only" id="input-idcard-reverse" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                <input @change="selectimg" type="file" class="sr-only" id="input-idcard-reverse" name="idcardreverse" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
                 <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Import image with Blob URLs">
                   选择图片<span class="fa fa-upload"></span>
                 </span>
@@ -79,24 +79,27 @@ let shimingrenzheng = Vue.component('certification-id',{
     data:function(){
         return{
             userdatatemp:{
-                authenticated:false
+                authenticated:false,
+                truename:'xxx',
+                idcard:'41***************3',
+                itype:'0',
+                idcardreverse:'Images/head-zhanwei.png',
+                idcardobverse:'Images/head-zhanwei.png',
+                imglist:{
+                    idcardreverse:'xx',
+                    idcardobverse:'xx',
+
+                }
             }
         }
     },
     methods:{
-
-    },
-    created:function(){
-        if(this.userdata.certificationif == 1){
-            this.userdatatemp.authenticated = true
-        }
-    replaceImg("#input-idcard-obverse",'#idcard-obverse')
-    replaceImg("#input-idcard-reverse",'#idcard-reverse')
-    let imageList={}
-    function replaceImg(a,b){
-        $(a).on("change", function (e) {
-            var fileInput = $(a)[0];        
-            var file = fileInput.files[0];        //创建读取文件的对象
+        selectimg:function(e){
+            _temp = this
+            console.log(e)
+            let fileInput = e.target;
+            console.log(fileInput.files[0])        
+            let file = fileInput.files[0];
             if(file.size > 5242880){
                 alert('上传图片请小于5mb')
                 return
@@ -104,67 +107,112 @@ let shimingrenzheng = Vue.component('certification-id',{
             if(file.type.indexOf("image") < 0){
                 alert('请上传图片文件')
                 return
-            }
-            imageList[a.slice(a.indexOf('-')+1)]  = file;      
-            var reader = new FileReader();                 //创建文件读取相关的变量       
-            var imgFile;                 //为文件读取成功设置事件        
-            reader.onload=function(e) {            
-                // alert('文件读取完成');            
-                imgFile = e.target.result;                
-                $(b).attr('src',imgFile)
-            };                 
-            reader.readAsDataURL(file);
-        })
-    }
-    $("#true-id-sumbit").on("click",function(){
-        let imageFile=Object.getOwnPropertyNames(imageList);
-        console.log(imageFile)
-        if(imageFile.length !== 2){
-            alert("请上传图片文件")
-            return
+            }   
+            //创建一个临时链接用来预览图片
+            //兼容性可能有问题，待定
+            _temp.userdatatemp[e.target.name] = window.URL.createObjectURL(file)
+            //------------   
+            this.userdatatemp.imglist[e.target.name] = file
+
+            $.ajax({
+                url:'/xxx',
+                type:'POST',
+                processData:false,
+                data:_temp.userdatatemp.imglist,
+                beforeSend:function(){
+                    _temp.$emit('loading-open')
+                },
+                success:function(data){
+                    console.log('上传成功')
+                },
+                fail:function(){
+                    console.log('上传失败')
+                },
+                complete:function(){
+                    _temp.$emit('loading-close')
+                }
+            })
         }
-        let tempForm = new FormData();
-        imageFile.forEach(function(e){//上传图片内容
-            tempForm.append(e,imageList[e]);
-        })
-        function temp(a){ //获取上传内容
-            if(document.getElementById(a).value === ""){
-                return false
-            }
-            return document.getElementById(a).value
+    },
+    created:function(){
+        if(this.userdata.certificationif == 1){
+            this.userdatatemp.authenticated = true
         }
-        //判断是否都填写完成
-        if(!(temp("true-name")&&temp("true-name")&&temp("id-number"))){
-            alert("有内容未填写")
-            return 
-        }
-        console.log('fin')
-        tempForm.append("true-name",temp("true-name"));
-        tempForm.append("itype",temp("itype"));
-        tempForm.append("id-number",temp("id-number"));
-        //append添加要传输的内容
-        $.ajax({
-            type: "post",
-            url: "/xxx",
-            data: tempForm,
-            contentType: 'multipart/form-data', 
-            processData: false,    //false
-            cache: false,    //缓存
-            beforeSend:function(){
-                $('.loading').addClass("active")
-            },
-            success: function(data){
-                console.log(data);      
-            },
-            fail:function(){
-                console.log('error')
-            },
-            complete:function(){
-                setTimeout(function(){
-                    $('.loading').removeClass("active")
-                },1000)
-            }
-      })
-    })
+    // replaceImg("#input-idcard-obverse",'#idcard-obverse')
+    // replaceImg("#input-idcard-reverse",'#idcard-reverse')
+    // let imageList={}
+    // function replaceImg(a,b){
+    //     $(a).on("change", function (e) {
+    //         var fileInput = $(a)[0];        
+    //         var file = fileInput.files[0];        //创建读取文件的对象
+    //         if(file.size > 5242880){
+    //             alert('上传图片请小于5mb')
+    //             return
+    //         }
+    //         if(file.type.indexOf("image") < 0){
+    //             alert('请上传图片文件')
+    //             return
+    //         }
+    //         imageList[a.slice(a.indexOf('-')+1)]  = file;      
+    //         var reader = new FileReader();                 //创建文件读取相关的变量       
+    //         var imgFile;                 //为文件读取成功设置事件        
+    //         reader.onload=function(e) {            
+    //             // alert('文件读取完成');            
+    //             imgFile = e.target.result;                
+    //             $(b).attr('src',imgFile)
+    //         };                 
+    //         reader.readAsDataURL(file);
+    //     })
+    // }
+    // $("#true-id-sumbit").on("click",function(){
+    //     let imageFile=Object.getOwnPropertyNames(imageList);
+    //     console.log(imageFile)
+    //     if(imageFile.length !== 2){
+    //         alert("请上传图片文件")
+    //         return
+    //     }
+    //     let tempForm = new FormData();
+    //     imageFile.forEach(function(e){//上传图片内容
+    //         tempForm.append(e,imageList[e]);
+    //     })
+    //     function temp(a){ //获取上传内容
+    //         if(document.getElementById(a).value === ""){
+    //             return false
+    //         }
+    //         return document.getElementById(a).value
+    //     }
+    //     //判断是否都填写完成
+    //     if(!(temp("true-name")&&temp("true-name")&&temp("id-number"))){
+    //         alert("有内容未填写")
+    //         return 
+    //     }
+    //     console.log('fin')
+    //     tempForm.append("true-name",temp("true-name"));
+    //     tempForm.append("itype",temp("itype"));
+    //     tempForm.append("id-number",temp("id-number"));
+    //     //append添加要传输的内容
+    //     $.ajax({
+    //         type: "post",
+    //         url: "/xxx",
+    //         data: tempForm,
+    //         contentType: 'multipart/form-data', 
+    //         processData: false,    //false
+    //         cache: false,    //缓存
+    //         beforeSend:function(){
+    //             $('.loading').addClass("active")
+    //         },
+    //         success: function(data){
+    //             console.log(data);      
+    //         },
+    //         fail:function(){
+    //             console.log('error')
+    //         },
+    //         complete:function(){
+    //             setTimeout(function(){
+    //                 $('.loading').removeClass("active")
+    //             },1000)
+    //         }
+    //   })
+    // })
     }
 })
