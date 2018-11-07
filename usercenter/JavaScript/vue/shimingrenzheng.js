@@ -2,7 +2,7 @@ let shimingrenzheng = Vue.component('certification-id',{
     props:['userdata'],
     template:`
     <div>
-    <div v-if=!this.userdatatemp.authenticated>
+    <div v-if=!userdatatemp.authenticated>
     <div class="row user-msg text-left">
         <div class="user-msg-title">
             <h2><i class="fa fa-user-plus fa-2x"></i> 实名认证</h2>
@@ -26,8 +26,8 @@ let shimingrenzheng = Vue.component('certification-id',{
         </div>
     </div>
     <main>
-        <label for="true-name">真实姓名：<input type="text" v-model=this.userdatatemp.truename name="true-name"></label>
-        <select name="itype" v-model=this.userdatatemp.itype>
+        <label for="true-name">真实姓名：<input type="text" v-model=userdatatemp.truename value="xx" name="true-name"></label>
+        <select name="itype" v-model=userdatatemp.itype>
             <option value="0">身份证</option>
             <option value="1">港澳居民来往内地通行证</option>
             <option value="2">台湾居民来往大陆通行证</option>
@@ -35,11 +35,11 @@ let shimingrenzheng = Vue.component('certification-id',{
             <option value="4">护照(外国签发)</option>
             <option value="5">外国人永久居留证</option>
         </select>
-        <label for="id-number">证件号：<input type="text" v-model=this.userdatatemp.idcard name="id-number"></label>
+        <label for="id-number">证件号：<input type="text" v-model=userdatatemp.idcard name="id-number"></label>
         <div>
             <div id="idcard-obverse-container" class="idcard-container">
                 <p>正面</p>
-                <img id="idcard-obverse" :src="this.userdatatemp.idcardobverse">
+                <img id="idcard-obverse" :src="userdatatemp.idcardobverse">
             </div>
             <div class="btn-container">
                 <label class="btn btn-primary btn-upload" for="input-idcard-obverse" title="Upload image file">
@@ -54,7 +54,7 @@ let shimingrenzheng = Vue.component('certification-id',{
     <div>
         <div id="idcard-reverse-container" class="idcard-container">
             <p>反面</p>
-            <img id="idcard-reverse" :src="this.userdatatemp.idcardreverse">
+            <img id="idcard-reverse" :src="userdatatemp.idcardreverse">
         </div>
         <div class="btn-container">
            <label class="btn btn-primary btn-upload" for="input-idcard-reverse" title="Upload image file">
@@ -65,13 +65,13 @@ let shimingrenzheng = Vue.component('certification-id',{
             </label>                                  
         </div>
     </div>
-    <button id="true-id-sumbit" class="btn btn-default">上传</button>
+    <button @click="updata" id="true-id-sumbit" class="btn btn-default">上传</button>
     </div>
-    <div v-if=this.userdatatemp.authenticated>
+    <div v-if=userdatatemp.authenticated>
         <div><h3>您已通过了实名认证</h3></div>
         <div>
-            <p><span>真实姓名：</span>{{this.userdata.truename}}</p>
-            <p><span>证号号码：</span>{{this.userdata.idcard}}</p>
+            <p><span>真实姓名：</span>{{userdata.truename}}</p>
+            <p><span>证号号码：</span>{{userdata.idcard}}</p>
         </div>
     </div>
     </div>
@@ -80,16 +80,13 @@ let shimingrenzheng = Vue.component('certification-id',{
         return{
             userdatatemp:{
                 authenticated:false,
-                truename:'xxx',
+                truename:'哈哈',
                 idcard:'41***************3',
                 itype:'0',
                 idcardreverse:'Images/head-zhanwei.png',
                 idcardobverse:'Images/head-zhanwei.png',
-                imglist:{
-                    idcardreverse:'xx',
-                    idcardobverse:'xx',
-
-                }
+                tempform:'',
+                formdata:'',
             }
         }
     },
@@ -112,13 +109,36 @@ let shimingrenzheng = Vue.component('certification-id',{
             //兼容性可能有问题，待定
             _temp.userdatatemp[e.target.name] = window.URL.createObjectURL(file)
             //------------   
-            this.userdatatemp.imglist[e.target.name] = file
-
+            this.userdatatemp.formdata.set(e.target.name, file,e.target.name)
+        },
+        updata:function(){
+            let _temp = this
+            if(!this.userdatatemp.truename){
+                alert('请输入名字')
+                return
+            }else if(!/^[\u4E00-\u9FA5\uf900-\ufa2d·]{2,20}$/.test(this.userdatatemp.truename)){
+                console.log(this.userdatatemp.truename)
+                alert('输入名字不符合规范,至少两个汉字')
+                return
+            }else{
+                this.userdatatemp.formdata.set('truename',_temp.userdatatemp.truename)
+            }
+            if(!this.userdatatemp.idcard){
+                alert('请输入证件号')
+                return
+            }else if(!/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(this.userdatatemp.idcard)){
+                alert('身份证号填写有误');  
+                return
+            }else{
+                this.userdatatemp.formdata.set('idcard',_temp.userdatatemp.idcard)
+            }
+            console.log(_temp.userdatatemp.formdata)
             $.ajax({
                 url:'/xxx',
                 type:'POST',
                 processData:false,
-                data:_temp.userdatatemp.imglist,
+                contentType: false,
+                data:_temp.userdatatemp.formdata,
                 beforeSend:function(){
                     _temp.$emit('loading-open')
                 },
@@ -138,6 +158,7 @@ let shimingrenzheng = Vue.component('certification-id',{
         if(this.userdata.certificationif == 1){
             this.userdatatemp.authenticated = true
         }
+        this.userdatatemp.formdata = new FormData()
     // replaceImg("#input-idcard-obverse",'#idcard-obverse')
     // replaceImg("#input-idcard-reverse",'#idcard-reverse')
     // let imageList={}

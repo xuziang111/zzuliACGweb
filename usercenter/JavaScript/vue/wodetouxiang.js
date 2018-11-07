@@ -70,6 +70,7 @@ let wodetouxiang = Vue.component('my-head',{
             reader.readAsDataURL(file);
         },
         updatehead:function(e){
+            let user = document.cookie
             if(this.xxx === 1){
                 alert('请选择图片')
                 return
@@ -80,11 +81,12 @@ let wodetouxiang = Vue.component('my-head',{
                 console.log(e);  //生成Blob的图片格式，base64卡顿时使用
             })
             console.log(base64url); //生成base64图片的格式
+            let temp = {user:user,userheadimg:base64url}
             _temp = this
             $.ajax({
                 url:'/xxx',
                 type:'POST',
-                data:base64url,
+                data:temp,
                 beforeSend:function(){
                     _temp.$emit('loading-open')
                 },
