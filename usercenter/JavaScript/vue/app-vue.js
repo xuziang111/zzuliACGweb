@@ -38,12 +38,12 @@
             certificationif:0,
             certificationvalue:"未实名认证",//占位，不用传
             birthday:'1990-01-01',
-            sex:2,
-            sexselect:['','',''],
+            sex:2,//性别
+            sexselect:['','',''],//占位，不用带
             ip:'127.0.0.1',
             identity:'校外人士',
-            truename:'*哈哈',
-            idcard:'41***************3',
+            truename:'*哈哈',//实名认证页面
+            idcard:'41***************3',//实名认证页面
           } 
         },
         methods:{

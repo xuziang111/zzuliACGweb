@@ -102,8 +102,4 @@ let wodetouxiang = Vue.component('my-head',{
             })
         },
     },
-    mounted:function(){
-        
-    
-    }
 })
