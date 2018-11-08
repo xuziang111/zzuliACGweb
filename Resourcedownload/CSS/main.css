@@ -33,3 +33,11 @@
 #page>.pagination>li>a:hover{
     background:rgba(255,255,255,0.3);
 }
+.search-bar{
+    display:inline;
+    width:auto;
+
+}
+.search-container{
+
+}
