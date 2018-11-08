@@ -1,0 +1,35 @@
+#tablelist.table-bordered{
+    border:0px solid #ddd;
+}
+#tablelist.table-bordered>thead>tr>th{
+    border:1px solid #ddd;
+}
+#tablelist>tbody>tr:nth-child(odd){
+    background-color: rgba(249,249,249,0.3);
+}
+@media (max-width: 768px){
+    #tablelist .col-xs-0 {
+        display:none
+    }
+}
+/* 修改bootstrap和html默认样式 表格全部居中 */
+#tablelist th{
+    text-align:center;
+}
+#tablelist>thead>tr>th{
+    vertical-align:middle;
+}
+#tablelist>tbody>tr>td{
+    vertical-align:middle;
+}
+/*结束 修改bootstrap和html默认样式 表格全部居中 */
+#page>.pagination>li>a{
+    background:rgba(255,255,255,0.1);
+    color:#ddd;
+}
+#page>.pagination>li.active>a{
+    background:rgba(51,122,183,0.3)
+}
+#page>.pagination>li>a:hover{
+    background:rgba(255,255,255,0.3);
+}

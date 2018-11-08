@@ -193,7 +193,7 @@ ul,ol {
     background-color:#FFF;
 }
 .nav > li > a > img {
-    max-width: 24px;!important;
+    max-width: 24px!important;
     display: block;
     height: auto;
 }
