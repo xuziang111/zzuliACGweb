@@ -41,8 +41,8 @@
         }
         /*居中内容块*/
         #body-container.container {
-            border: 1px solid #99CCFF;
-            background-color: rgba(153,204,255,0.1);
+            /* border: 1px solid #99CCFF;
+            background-color: rgba(153,204,255,0.1); */
         }
         .content {
             position:relative;
@@ -65,7 +65,7 @@
             padding-right: 0px;
         } */
         @media (max-width: 768px){
-            .container {
+            .body-container {
                 padding-left: 15px;
                 padding-right: 15px;
             }
@@ -73,7 +73,7 @@
 
     </style>
     <!--此处引入你的外部CSS文件，end-->
-    <link href="CSS/main.css" rel="stylesheet">
+    <link href="CSS/view.css" rel="stylesheet">
     <!--*********************************************************************************************-->
 
 
@@ -93,19 +93,40 @@
 <!--*********************************************************************************************-->
 <!-- Home Page 在此处修改你的内容
 ==========================================-->
-<div id="tf-home" class="text-center">
+<div id="tf-home">
     <div class="overlay">
-        <div class="content"><!--此处为内容块的总标题，根据需要删减修改-->
+        <div class="content text-center"><!--此处为内容块的总标题，根据需要删减修改-->
             <h1>郑州轻工业大学<strong><span class="color">动漫协会</span></strong></h1>
             <!--fa小图标使用方法百度font-awesome即可-->
             <p class="lead">此处内容块副标题，根据自己的需要进行修改<i class="fa fa-exclamation-triangle fa-1x" aria-hidden="true"></i></p>
         </div>
-        <div id="body-container" class="container">
+        <main id="body-container" class="container">
             <!--在此处编辑你的HTML代码,详情了解Boostrap栅格系统-->
             <div class="row">
-
+                <section class="container">
+                    <div class="section-white"><h2>[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</h2></div>
+                    <div class="row">
+                        <p class="col-xs-12 col-sm-6">分类：<span>动画</span></p>
+                        <p class="col-xs-12 col-sm-6">发布时间：<span>2018-11-08 08:47</span></p>
+                        <p class="col-xs-12 col-sm-6">文件大小：<span>13.9 GiB</span></p>
+                        <p class="col-xs-12 col-sm-6">种子数：<span>1</span></p>
+                        <p class="col-xs-12 col-sm-6">完成：<span>0</span></p>
+                    </div>
+                    <div class="section-white">
+                        <a href="#"><i class="fa fa-download">下载</i></a>
+                    </div>
+                </section>
+                <section>
+                    <p>这是一条简介。</p>
+                </section>
+                <section>
+                    <div class="section-white">文件列表</div>
+                    <ul>
+                        <li><i class="fa fa-file"></i>[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts <span>(13.9 GiB)</span></li>
+                    </ul>
+                </section>
             </div>
-        </div>
+        </main>
     </div>
 </div>
 <!--==========================================-->
