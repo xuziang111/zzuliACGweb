@@ -23,6 +23,9 @@
     vertical-align:middle;
 }
 /*结束 修改bootstrap和html默认样式 表格全部居中 */
+#body-container>.row{
+padding:15px;
+}
 #page>.pagination>li>a{
     background:rgba(255,255,255,0.1);
     color:#ddd;
@@ -38,6 +41,13 @@
     width:auto;
 
 }
-.search-container{
-
+.form-control.search-bar{
+    border-radius: 0px;
+}
+#search-type{
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+}
+.search-container.visible-xs{
+    margin:30px;
 }
