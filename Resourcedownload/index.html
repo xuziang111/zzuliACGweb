@@ -56,7 +56,7 @@
         }
         @media (max-width: 960px){
             .content {
-                /* padding:15% 0 0; */
+                padding:15% 0 0;
             }
         }
         /*响应式标记，全改为15px*/
@@ -102,12 +102,23 @@
         </div>
         <div id="body-container" class="container">
             <!--在此处编辑你的HTML代码,详情了解Boostrap栅格系统-->
+            <div class="topbar">
+                    <p><a href="?category=0">全部</a></p>
+                    <p><a href="?category=1">动画</a></p>
+                    <p><a href="?category=2">漫画</a></p>
+                    <p><a href="?category=3">音乐</a></p>
+                    <p><a href="?category=4">日剧</a></p>
+                    <p><a href="?category=5">raw</a></p>
+                    <p><a href="?category=6">游戏</a></p>
+                    <p><a href="?category=7">特摄</a></p>
+                    <p><a href="?category=8">其他</a></p>
+                </div>
             <div class="row">
                 <div>
                     <div class="search-container visible-xs">
                         <form class="navbar-form navbar-right form" action="https://baidu.com/" method="get">        
                             <input type="text" class="form-control" name="search" placeholder="Search..." value="">
-                            <select class="form-control" title="Category" data-width="200px" name="category">
+                            <select class="form-control" title="Category" name="category">
                                 <option value="0" title="全部">
                                     全部
                                 </option>
@@ -189,9 +200,9 @@
                 </div>
                 <table id="tablelist" class="table table-bordered table-condensed">
                     <thead class="container">
-                        <tr class="row text-center">
+                        <tr class=" text-center">
                             <th class="col-xs-2 col-sm-2">日期</th>
-                            <th class="col-xs-2 col-sm-1">类别</th>
+                            <th class="col-xs-2 col-sm-1">动画</th>
                             <th class="col-xs-5 col-sm-4">名称</th>
                             <th class="col-xs-1 col-sm-1">链接</th>
                             <th class="col-xs-2 col-sm-1">大小</th>
@@ -201,9 +212,9 @@
                         </tr>
                     </thead>
                     <tbody class="container">
-                        <tr class="row">
+                        <tr class="">
                             <td class="col-xs-2 col-sm-2">	2018-11-08 08:47</td>
-                            <td class="col-xs-2 col-sm-1">类别</td>
+                            <td class="col-xs-2 col-sm-1"><a href="?/category=1">动画</a></td>
                             <td class="col-xs-5 col-sm-4"><a href="/view">[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</a></td>
                             <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>
                             <td class="col-xs-2 col-sm-1">13.9 GiB</td>
@@ -211,9 +222,9 @@
                             <td class="col-xs-0 col-sm-1">7</td>
                             <td class="col-xs-0 col-sm-1">0</td>
                         </tr>
-                        <tr class="row">
+                        <tr class="">
                             <td class="col-xs-2 col-sm-2">	2018-11-08 08:47</td>
-                            <td class="col-xs-2 col-sm-1">类别</td>
+                            <td class="col-xs-2 col-sm-1"><a href="?/category=1">动画</a></td>
                             <td class="col-xs-5 col-sm-4"><a href="/view">[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</a></td>
                             <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>
                             <td class="col-xs-2 col-sm-1">13.9 GiB</td>
