@@ -28,15 +28,15 @@
             userid:'8080',//用户id
             usermotto:'个性签名',//没有就返回空
             userheadimg:'Images/head.jpg',//用户头像
-            emailif:1,//判断邮箱是否存在，0不存在，1存在，下面if同理
+            emailif:0,//判断邮箱是否存在，0不存在，1存在，下面if同理
             emailvalue:"example@email.com",//若存在返回邮箱exa***@qq.com,不存在返回空值
             phoneif:1,
             phonevalue:13312345678,//手机号同邮箱
-            passwordif:1,
+            passwordif:0,
             passwordvalue:"已设置",//占位，不用传
-            questionif:0,
+            questionif:1,
             questionvalue:"未设置密保问题",//占位，不用传
-            certificationif:0,
+            certificationif:1,
             certificationvalue:"未实名认证",//占位，不用传
             birthday:'1990-01-01',
             sex:2,//性别
