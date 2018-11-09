@@ -54,12 +54,7 @@ let heimingdanguanli = Vue.component('black-list',{
                 pages:5,
                 size:10,
                 total:50,
-                records:[{uid:1,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
-                    {uid:2,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
-                    {uid:3,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
-                    {uid:4,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
-                    {uid:5,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"}
-                ]
+                records:[]
             },
             next:{
                 page:2,

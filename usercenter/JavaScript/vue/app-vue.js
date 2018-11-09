@@ -9,7 +9,8 @@
         { path: '/heimingdanguanli', component: heimingdanguanli },
         { path: '/wodejilu', component: wodejilu },
         { path: '/shimingrenzheng', component: shimingrenzheng },
-        { path: '/yaoqingzhuce', component: yaoqingzhuce }
+        { path: '/yaoqingzhuce', component: yaoqingzhuce },
+        {path:'*',component: NotFoundComponent}
       ]
 
       const router = new VueRouter({
