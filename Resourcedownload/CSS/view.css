@@ -27,3 +27,7 @@ section{
 ul>li>span{
     font-weight:bold;
 }
+#body-container{
+    padding-left:30px;
+    padding-right:30px;
+}
