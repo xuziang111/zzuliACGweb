@@ -238,8 +238,9 @@
 
 
 .item{
-    min-height:700px;
+    min-height:500px;
     transition: all .3s linear;
+    overflow: hidden;
 }
 .item>.circ,.item>.month{
     opacity: 0;
@@ -273,4 +274,8 @@ dl>dd.active>.events,dl>dd.active>.time{
 
 .item1>.time{
     transform: translateX(200px)
+}
+.year-time>ul>li{
+display:inline-block;
+border-bottom:1px solid #FCAC45
 }
