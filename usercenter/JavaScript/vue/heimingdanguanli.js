@@ -96,7 +96,7 @@ let heimingdanguanli = Vue.component('black-list',{
                     console.log('成功移除')
                     ajaxSuccess(data)      
                 },
-                fail:function(){
+                error:function(){
                     console.log('error')
                 },
                 complete:function(){
@@ -131,7 +131,7 @@ let heimingdanguanli = Vue.component('black-list',{
                 success: function(data){
                     this.$options.methods.ajaxSuccess(data);      
                 }.bind(this),
-                fail:function(){
+                error:function(){
                     console.log('error')
                 },
                 complete:function(){

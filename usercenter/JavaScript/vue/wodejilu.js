@@ -32,12 +32,36 @@ let denglujilu = Vue.component('denglujilu',{
     `,
     data:function(){
         return {
-            datas:{}
+            datas:{
+
+            }
         }
     },
     methods:{
 
     },
+    created:function(){
+        $.ajax({
+            type: "post",
+            url: "/denglujilu",
+            data: temp, 
+            processData: false,    //false
+            cache: false,    //缓存
+            beforeSend:function(){
+                _temp.$emit('loading-open')
+            },
+            success: function(data){//重新接收数据
+                console.log('成功移除')
+                ajaxSuccess(data)      
+            },
+            error:function(){
+                console.log('error')
+            },
+            complete:function(){
+                _temp.$emit('loading-close')
+            }
+        })
+    }
 })
 
 

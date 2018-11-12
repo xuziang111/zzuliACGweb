@@ -147,7 +147,7 @@ let shimingrenzheng = Vue.component('certification-id',{
                 success:function(data){
                     console.log('上传成功')
                 },
-                fail:function(){
+                error:function(){
                     console.log('上传失败')
                 },
                 complete:function(){

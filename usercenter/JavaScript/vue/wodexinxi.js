@@ -115,7 +115,7 @@ let wodexinxi = Vue.component('per-inf',{
                 success: function(data){
                     console.log(data);      
                 },
-                fail:function(){
+                error:function(){
                     console.log('error')
                 },
                 complete:function(){
