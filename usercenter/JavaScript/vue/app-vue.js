@@ -7,7 +7,17 @@
         { path: '/wodexunzhang', component: wodexunzhang },
         { path: '/zhanghaoanquan', component: zhanghaoanquan },
         { path: '/heimingdanguanli', component: heimingdanguanli },
-        { path: '/wodejilu', component: wodejilu },
+        { path: '/wodejilu', component: wodejilu,
+        children:[
+          {
+            path:'denglujilu',
+            component:denglujilu
+          },{
+            path:'pinglunjilu',
+            component:pinglunjilu
+          }
+        ]
+      },
         { path: '/shimingrenzheng', component: shimingrenzheng },
         { path: '/yaoqingzhuce', component: yaoqingzhuce },
         {path:'*',component: NotFoundComponent}
