@@ -2,3 +2,5 @@
 vue bootstrap jquery-ajax
 # 资源下载
 jquery bootstrap
+# 时间线
+jquery bootstrap waypoints
