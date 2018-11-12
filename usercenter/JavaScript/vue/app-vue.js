@@ -15,6 +15,9 @@
           },{
             path:'pinglunjilu',
             component:pinglunjilu
+          },{
+            path:'/wodejilu',
+            component:denglujilu
           }
         ]
       },
