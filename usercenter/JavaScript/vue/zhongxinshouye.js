@@ -37,8 +37,10 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
                 <div class="user-msg-th-cont">
                     <b class="h-safe-title">我的邮箱</b>
                     <p class="h-safe-desc">绑定邮箱即可邮箱登录</p>
-                    <a class="btn btn-user btn-xs disabled" role="button">{{userbasedata.email}}</a>
-                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs">更改邮箱 </router-link>
+                    <a class="btn btn-user btn-xs disabled" role="button" v-if=userdata.emailif>已认证</a>
+                    <a class="btn btn-user btn-xs disabled" role="button" v-if=!userdata.emailif>未认证</a>
+                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs" v-if=userdata.emailif>更改邮箱 </router-link>
+                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs" v-if=!userdata.emailif>绑定邮箱 </router-link>
                 </div>
             </div>
         </div>
@@ -48,8 +50,10 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
                 <div class="user-msg-th-cont">
                     <b class="h-safe-title">我的手机</b>
                     <p class="h-safe-desc">绑定手机即可手机登录</p>
-                    <a class="btn btn-user btn-xs disabled" role="button">{{userbasedata.phone}}</a>
-                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs">更改手机 </router-link>
+                    <a class="btn btn-user btn-xs disabled" role="button" v-if=userdata.phoneif>已认证</a>
+                    <a class="btn btn-user btn-xs disabled" role="button" v-if=!userdata.phoneif>未认证</a>
+                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs" v-if=userdata.phoneif>更改手机 </router-link>
+                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs" v-if=!userdata.phoneif>绑定手机 </router-link>
                 </div>
             </div>
         </div>
@@ -59,8 +63,10 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
                 <div class="user-msg-th-cont">
                     <b class="h-safe-title">密保问题</b>
                     <p class="h-safe-desc">设置密保，账号更安全</p>
-                    <a class="btn btn-user btn-xs disabled" role="button">{{userbasedata.question}}</a>
-                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs">设置密保 </router-link>
+                    <a class="btn btn-user btn-xs disabled" role="button" v-if=userdata.questionif>已设置</a>
+                    <a class="btn btn-user btn-xs disabled" role="button" v-if=!userdata.questionif>未设置</a>
+                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs" v-if=userdata.questionif>更改密保 </router-link>
+                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs" v-if=!userdata.questionif>设置手机 </router-link>
                 </div>
             </div>
         </div>
@@ -70,8 +76,10 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
                 <div class="user-msg-th-cont">
                     <b class="h-safe-title">实名认证</b>
                     <p class="h-safe-desc">学号认证、证件认证</p>
-                    <a class="btn btn-user btn-xs disabled" role="button">{{userbasedata.certification}}</a>
-                    <router-link to="/shimingrenzheng" class="btn btn-user btn-xs">实名认证 </router-link>
+                    <a class="btn btn-user btn-xs disabled" role="button" v-if=userdata.certificationif>已认证</a>
+                    <a class="btn btn-user btn-xs disabled" role="button" v-if=!userdata.certificationif>未认证</a>
+                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs" v-if=userdata.certificationif>查看认证 </router-link>
+                    <router-link to="/zhanghaoanquan" class="btn btn-user btn-xs" v-if=!userdata.certificationif>进行认证 </router-link>
                 </div>
             </div>
         </div>
@@ -104,26 +112,8 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
     data:function(){
         return {
             userbasedata:{
-                email:'未绑定',
-                phone:'未绑定',
-                question:'未绑定',
-                certification:'未认证',
+
             }
-        }
-    },
-    created:function(){
-        console.log(this.userdata)
-        if(this.userdata.emailif == 1){
-            this.userbasedata.email="已绑定"
-        }
-        if(this.userdata.phoneif == 1){
-            this.userbasedata.phone="已绑定"
-        }
-        if(this.userdata.questionif == 1){
-            this.userbasedata.questiond="已绑定"
-        }
-        if(this.userdata.certificationif == 1){
-            this.userbasedata.certification="已认证"
         }
     },
 })
