@@ -16,7 +16,6 @@
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!--BaseCSS-->
     <link href="CSS/templateBase.css" rel="stylesheet">
-
     <!--动漫协会官网基础样式文件,end-->
     <!--*********************************************************************************************-->
     <!--此处引入你的外部CSS文件，start ↓↓↓↓↓↓↓↓↓-->
@@ -72,247 +71,9 @@
         }
 
 
-
-
-
-
-
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-	font-family: 'Nunito', sans-serif;
-	background-color: #292929;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* _site-header.css */
-.site-header {
-  text-align: center;
-  padding: 40px 0;
-
-}
-.site-header__title {
-  font-size: 36px;
-  color: #fff;
-}
-
-/* _wrapper.css */
-.wrapper {
-  padding-left: 18px;
-  padding-right: 18px;
-  max-width: 1236px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* _timeline.css */
-.timeline {
-  position: relative;
-  margin: 30px auto;
-  padding: 60px 0;
-
-}
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 10%;
-  width: 4px;
-  height: 100%;
-  background-color: #8d94b1;
-}
-@media (min-width: 800px){
-  .timeline::before{
-    left: 50%;
-    margin-left: -2px;
-  }
-}
-.timeline__item {
-  margin-bottom: 100px;
-  position: relative;
-}
-.timeline__item::after{
-  content: "";
-  clear: both;
-  display: table;
-}
-.timeline__item:nth-child(2n) .timeline__item__content {
-  float: right;
-  position:relative;
-  transform: translate(100px);
-  opacity: 0;
-}
-.timeline__item:nth-child(2n) .timeline__item__content::before {
-  content: '';
-  position:absolute;
-  right:100%;
-  width:100px;
-}
-@media (min-width: 800px){
-  .timeline__item:nth-child(2n) .timeline__item__content::before{
-    left: inherit;
-  }
-}
-.timeline__item:nth-child(2n) .timeline__item__content__date {
-  background-color: #b292c5;
-}
-.timeline__item:nth-child(2n) .timeline__item__content__description {
-  color: #b292c5;
-}
-.timeline__item:last-child {
-  margin-bottom: 0;
-}
-.timeline__item-bg {
-  -webkit-transition: all 1s ease-out;
-  transition: all 1s ease-out;
-  color: #fff;
-}
-.timeline__item-bg:nth-child(2n) .timeline__item__station {
-  background-color: #7646b5;
-}
-.timeline__item-bg:nth-child(2n) .timeline__item__content {
-  background-color: #7646b5;
-  transform: translate(0px);
-  opacity: 1;
-}
-.timeline__item-bg:nth-child(2n) .timeline__item__content::before {
-  background-color: #b292c5;
-}
-.timeline__item-bg:nth-child(2n) .timeline__item__content__description {
-  color: #fff;
-}
-.timeline__item-bg .timeline__item__station {
-  background-color: #0072e8;
-}
-.timeline__item-bg .timeline__item__content {
-  background-color: #0072e8;
-  opacity: 1;
-  transform: translateX(0)
-}
-.timeline__item-bg .timeline__item__content::before {
-  background-color: #65adb7;
-}
-.timeline__item-bg .timeline__item__content__description {
-  color: #fff;
-}
-.timeline__item__station {
-  background-color: #9aa0b9;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  border-radius: 50%;
-  padding: 10px;
-  top: 0;
-  left: 10%;
-  margin-left: -33px;
-  border: 4px solid #8d94b1;
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
-  z-index:10;
-}
-@media (min-width: 800px){
-  .timeline__item__station{
-    left: 50%;
-    margin-left: -30px;
-    width: 60px;
-    height: 60px;
-    padding: 15px;
-    border-width: 6px;
-  }
-}
-.timeline__item__content {
-  width: 80%;
-  background: #fff;
-  padding: 20px 30px;
-  border-radius: 6px;
-  float: right;
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
-  transform: translateX(-100px);
-  opacity: 0;
-}
-@media (min-width: 800px){
-  .timeline__item__content{
-    width: 40%;
-    float: inherit;
-    padding: 30px 40px;
-  }
-}
-.timeline__item__content::before {
-  content: '';
-  position: absolute;
-  left: 10%;
-  background: #8d94b1;
-  top: 20px;
-  width: 10%;
-  height: 4px;
-  z-index: -1;
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
-}
-@media (min-width: 800px){
-  .timeline__item__content::before{
-    left: 100%;
-    top: 30px;
-    height: 4px;
-    margin-top: -2px;
-    width:100px;
-  }
-}
-.timeline__item__content__date {
-  margin: 0;
-  padding: 8px 12px;
-  font-size: 15px;
-  margin-bottom: 10px;
-  background-color: #65adb7;
-  color: #fff;
-  display: inline-block;
-  border-radius: 4px;
-  border: 2px solid #fff;
-}
-.timeline__item__content__description {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 300;
-  color: #65adb7;
-}
-@media (min-width: 800px){
-  .timeline__item__content__description{
-    font-size: 19px;
-    line-height: 28px;
-  }
-}
-
-/* _site-footer.css */
-.site-footer {
-  padding: 50px 0 200px 0;
-
-}
-.site-footer__text {
-  color: #e6e6e6;
-  font-size: 14px;
-  text-align: center;
-}
-.site-footer__text__link {
-  color: #8287a9;
-}
-
-    #tf-home .overlay{
-      height:auto;
-    }
-
     </style>
     <!--此处引入你的外部CSS文件，end-->
+    <link href="CSS/main.css" rel="stylesheet">
     <!--*********************************************************************************************-->
 </head>
 <body>
@@ -352,127 +113,109 @@ img {
           </ul>
         </div>
         <section class="timeline">
-          <div class="wrapper">
-            <div class="timeline__item timeline__item--0">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1977 Aug. 20</h2>
-                <p class="timeline__item__content__description">Voyager 2 launched from Kennedy Space Flight Center</p>
-              </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="VivaTimeline">
+                            <dl>
+                                <dd class="item item1 pos-left clearfix">
+                                    <div class="month">2月</div>
+                                    <div class="circ"></div>
+                                    <div class="time">Feb 03</div>
+                                    <div class="events">
+                                        <div class="events-header">Event Heading</div>
+                                        <div class="events-body">
+                                            <div class="row">
+                                                <div class="col-md-6 pull-left">
+                                                    <img class="events-object img-responsive img-rounded" src="images/dog01.png" />
+                                                </div>
+                                                <div class="events-desc">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 pull-left">
+                                                    <img class="events-object img-responsive img-rounded" src="images/dog02.png" />
+                                                </div>
+                                                <div class="events-desc">
+                                                    Morbi at nisi vitae mauris pretium egestas. Morbi placerat risus ligula, nec placerat urna porta vel. Nullam sollicitudin orci quis odio eleifend, ut facilisis orci lobortis. Vivamus sed lobortis odio. Nam volutpat, leo a ullamcorper luctus, sapien libero auctor est, sed semper massa turpis sed quam. Mauris posuere, libero in ultricies dignissim, lacus purus egestas urna, nec semper lorem tellus non eros. Nam at bibendum libero. Curabitur a ante et orci cursus tincidunt. Vivamus dictum, libero et rhoncus congue, nulla erat mollis dui, vitae cursus dui justo quis velit. In a tellus arcu. Nam at lobortis nisl. Donec consequat placerat eros, quis elementum mauris sodales a. Maecenas id feugiat velit. Phasellus dictum eleifend varius. Cras nec orci turpis. Aenean ut turpis nibh.
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 pull-left">
+                                                    <img class="events-object img-responsive img-rounded" src="images/dog03.png" />
+                                                </div>
+                                                <div class="events-desc">
+                                                    Cras condimentum, metus ut vehicula euismod, odio massa pulvinar neque, id gravida neque est et sem. Proin consequat id nibh quis molestie. Quisque vehicula purus id purus elementum facilisis. Phasellus sodales nibh quis neque rhoncus aliquet. Nunc eget ipsum efficitur, pretium arcu et, gravida purus. Phasellus tempor lacus ac enim pulvinar elementum. Integer aliquet justo lacinia nunc tempus vulputate.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="events-footer">
+                                            123
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd class="item item2 pos-right clearfix">
+                                    <div class="month">Feb 2016</div>
+                                    <div class="circ"></div>
+                                    <div class="time">Jan 21</div>
+                                    <div class="events">
+                                        <div class="events-header">A Very Very Looooooooooooooooooooong Event Heading</div>
+                                        <div class="events-body">
+                                            <div class="row">
+                                                <div class="col-md-6 pull-left">
+                                                    <img class="events-object img-responsive img-rounded" src="images/cat01.png" />
+                                                </div>
+                                                <div class="events-desc">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 pull-left">
+                                                    <img class="events-object img-responsive img-rounded" src="images/cat02.png" />
+                                                </div>
+                                                <div class="events-desc">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 pull-left">
+                                                    <img class="events-object img-responsive img-rounded" src="images/cat03.png" />
+                                                </div>
+                                                <div class="events-desc">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="events-footer">
+        
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd class="item item3 pos-left clearfix">
+                                    <div class="circ"></div>
+                                    <div class="time">Jan 07</div>
+                                    <div class="events">
+                                        <div class="events-header">Event Heading</div>
+                                        <div class="events-body">
+                                            <div class="row">
+                                                <div class="col-md-6 pull-left">
+                                                    <img class="events-object img-responsive img-rounded" src="images/rabbit01.png" />
+                                                </div>
+                                                <div class="events-desc">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="timeline__item timeline__item--1">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1977 Sept. 5</h2>
-                <p class="timeline__item__content__description">Voyager 1 launched from Kennedy Space Flight Center, Voyager 1 returns first spacecraft photo of Earth and Moon</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--2">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1979 Mar. 5</h2>
-                <p class="timeline__item__content__description">Voyager 1 makes its closest approach to Jupiter</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--3">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1979 July 9</h2>
-                <p class="timeline__item__content__description">Voyager 2 makes its closest approach to Jupiter</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--4">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1980 Nov. 12</h2>
-                <p class="timeline__item__content__description">Voyager 1 flies by Saturn, Voyager 1 begins its trip out of the Solar System</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--5">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1981 Aug. 25</h2>
-                <p class="timeline__item__content__description">Voyager 2 flies by Saturn</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--6">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1982</h2>
-                <p class="timeline__item__content__description">Deep Space Network upgrades two 26-m antennas to 34-m</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--7">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1986 Jan. 24</h2>
-                <p class="timeline__item__content__description">Voyager 2 has the first-ever encounter with Uranus, Deep Space Network begins expansion of 64-m antennas to 70-m</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--8">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1987</h2>
-                <p class="timeline__item__content__description">Voyager 2 'observes' Supernova 1987A</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--9">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1988</h2>
-                <p class="timeline__item__content__description">Voyager 2 returns first color images of Neptune</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--10">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1989 Aug. 25</h2>
-                <p class="timeline__item__content__description">Voyager 2 is the first spacecraft to observe Neptune, Voyager 2 begins its trip out of the Solar System, below the ecliptic plane</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--11">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1990 Jan. 1</h2>
-                <p class="timeline__item__content__description">Begins Voyager Interstellar Mission</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--12">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1990 Feb. 14</h2>
-                <p class="timeline__item__content__description">Last Voyager Images - Portrait of the Solar System</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--13">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">1998 Feb. 17</h2>
-                <p class="timeline__item__content__description">Voyager 1 passes Pioneer 10 to become the most distant human-made object in space</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--14">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">2004 Dec. 15</h2>
-                <p class="timeline__item__content__description">Voyager 1 crosses Termination Shock</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--15">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">2007 Sep. 5</h2>
-                <p class="timeline__item__content__description">Voyager 2 crosses Termination Shock</p>
-              </div>
-            </div>
-            <div class="timeline__item timeline__item--16">
-              <div class="timeline__item__station"></div>
-              <div class="timeline__item__content">
-                <h2 class="timeline__item__content__date">2012 Aug. 25</h2>
-                <p class="timeline__item__content__description">Voyager 1 enters Interstellar Space</p>
-              </div>
-            </div>
-          </div>
+        
+        
         </section>
         
     </div>
@@ -522,26 +265,36 @@ img {
 <!--此处追加你要增加的外部JS文件地址，end   ↑↑↑↑↑↑↑↑↑-->
 <!--*********************************************************************************************-->
 <!--在以下script标签中追加你的js代码，start  ↓↓↓↓↓↓↓↓↓-->
-<script>
-    function customWayPoint(className, addClassName, customOffset) {
-      var waypoints = $(className).waypoint({
-        handler: function(direction) {
-          if (direction == "down") {
-            $(className).addClass(addClassName);
-          } else {
-            $(className).removeClass(addClassName);
-          }
-        },
-        offset: customOffset
+<script src="JavaScript/3.3.7bootstrap.min.js"></script>
+<script src="JavaScript/jquery.eeyellow.Timeline.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+      $('.VivaTimeline').vivaTimeline({
+          carousel: true,
+          carouselTime: 3000
       });
-    }
-    
-    var defaultOffset = '50%';
-    
-    for (i = 0; i < 17; i++) {
-      customWayPoint('.timeline__item--' + i, 'timeline__item-bg', defaultOffset);
-    }
-    </script>
+  });
+</script>
+<script>
+  function customWayPoint(className, addClassName, customOffset) {
+    var waypoints = $(className).waypoint({
+      handler: function(direction) {
+        if (direction == "down") {
+          $(className).addClass(addClassName);
+        } else {
+          $(className).removeClass(addClassName);
+        }
+      },
+      offset: customOffset
+    });
+  }
+  
+  var defaultOffset = '50%';
+  
+  for (i = 0; i < 17; i++) {
+    customWayPoint('.item' + i, 'active', defaultOffset);
+  }
+  </script>
 <!--在以下script标签中追加你的js代码，end    ↑↑↑↑↑↑↑↑↑-->
 <!--*********************************************************************************************-->
 <!--JS,end-->

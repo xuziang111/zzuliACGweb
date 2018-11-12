@@ -74,12 +74,7 @@ let denglujilu = Vue.component('denglujilu',{
 let pinglunjilu = Vue.component('pinglunjilu',{
     template:`
     <div>
-    <div class="row user-msg text-left">
-        <div class="user-msg-title"><h2><i class="fa fa-location-arrow fa-2x"></i> 评论记录</h2></div>
-        <div class="line-border"></div>
-    </div>
-    <div class="text-center">
-</div>
+    <p>建设中</p>
 </div>
     `,
     data:function(){
