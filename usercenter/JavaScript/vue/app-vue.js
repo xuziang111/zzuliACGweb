@@ -36,6 +36,7 @@
         data:{
           ifblack:false,
           ifloading:true,
+          ifpopwindow:'',
           userdata:{//里面的默认填的信息为从后台获取失败时会显示的内容
             username:'用户名',//用户名
             userid:'8080',//用户id
@@ -61,6 +62,12 @@
           } 
         },
         methods:{
+          popwindowclose:function(){
+            this.ifpopwindow = '';
+          },
+          popwindowopen:function(){
+            this.ifpopwindow = 'active';
+          },
           asideOpen:function(){
             this.ifblack = true;
           },

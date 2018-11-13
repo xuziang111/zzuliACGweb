@@ -95,6 +95,7 @@ let wodetouxiang = Vue.component('my-head',{
                 },
                 error:function(){
                     console.log('上传失败')
+                    _temp.$emit('updata-fail')
                 },
                 complete:function(){
                     _temp.$emit('loading-close')
