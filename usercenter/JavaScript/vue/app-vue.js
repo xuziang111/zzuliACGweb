@@ -49,7 +49,7 @@
             passwordvalue:"已设置",//占位，不用传
             questionif:1,
             questionvalue:"未设置密保问题",//占位，不用传
-            certificationif:1,
+            certificationif:0,
             certificationvalue:"未实名认证",//占位，不用传
             birthday:'1990-01-01',
             sex:2,//性别
