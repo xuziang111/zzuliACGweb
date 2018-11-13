@@ -53,16 +53,6 @@
     -moz-border-radius: 50%
 }
 
-.VivaTimeline dl dd .time {
-    position: absolute;
-    top: 31px;
-    left: 50px;
-    display: inline-block;
-    width: 100px;
-    padding: 10px 20px;
-    color: #4fc1e9
-}
-
 .VivaTimeline dl dd .events {
     position: relative;
     width: 47%;
@@ -134,10 +124,8 @@
 }
 
 .VivaTimeline dl dd.pos-right .time {
-    margin-left: -100px;
-    text-align: right
+    text-align: left
 }
-
 .VivaTimeline dl dd.pos-right .events {
    position: absolute;
    left:100px;
@@ -253,13 +241,13 @@
     transition: all .3s linear;
     opacity: 0;
 }
-dl>dd:nth-child(odd)>.events,dl>dd:nth-child(even)>.time{
-    transform: translateX(-200px)
-}
-
-dl>dd:nth-child(even)>.events,dl>dd:nth-child(odd)>.time{
+dl>dd>.events{
     transform: translateX(200px)
 }
+dl>dd>.time{
+    transform: translateX(400px)
+}
+
 .item>.month{
     width:100px;
     background:#aab2bd;
@@ -267,15 +255,27 @@ dl>dd:nth-child(even)>.events,dl>dd:nth-child(odd)>.time{
     border-radius:4px;
     text-align: center;
 }
-dl>dd.active>.events,dl>dd.active>.time{
+dl>dd.active>.events{
     transform: translateX(0px);
     opacity: 1;
 }
-
-.item1>.time{
-    transform: translateX(200px)
+dl>dd.active>.time{
+    transform: translateX(100px);
+    opacity: 1;
 }
 .year-time>ul>li{
 display:inline-block;
 border-bottom:1px solid #FCAC45
+}
+.events>.time{
+    position: absolute;
+    top:-20px;
+    left:0;
+    color: #4fc1e9;
+}
+.content >li{
+    display:none;
+}
+.content >li.active{
+    display:block;
 }
