@@ -279,3 +279,32 @@ border-bottom:1px solid #FCAC45
 .content >li.active{
     display:block;
 }
+.owl-carousel{
+    width:700px;
+    background:#ddd;
+
+    color:blue;
+    border-radius:4px;
+    border:1px solid red;
+}
+.owl-carousel .owl-item img{
+    width:200px;
+    float:right;
+    padding-top:40px;
+}
+.owl-stage-outer{
+    border-radius:4px;
+}
+.item{
+position: relative;
+}
+.item>h4{
+    position: absolute;
+    width:400px;
+    padding:0;
+    margin:0;
+    line-height:40px;
+}
+.item>p{
+    padding-top:40px;
+}
