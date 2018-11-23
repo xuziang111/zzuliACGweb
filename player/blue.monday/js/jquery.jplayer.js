@@ -142,7 +142,8 @@
 			'ended',
 			'ratechange',
 			'durationchange',
-			'volumechange'
+			'volumechange',
+			'mousedown',
 		],
 		function() {
 			$.jPlayer.event[ this ] = 'jPlayer_' + this;
@@ -1004,6 +1005,9 @@
 			this.internal.poster.jq.bind("click.jPlayer", function() {
 				self._trigger($.jPlayer.event.click);
 			});
+			this.internal.poster.jq.bind("mousedown.jPlayer", function() {
+				self._trigger($.jPlayer.event.mousedown);
+			});
 			
 			// Generate the required media elements
 			this.html.audio.available = false;
@@ -1733,6 +1737,9 @@
 						this._updateButtons(false);
 						this._trigger(eventType);
 						break;
+					case $.jPlayer.event.mousedown:
+						this._trigger(eventType); // This could be dealt with by the default
+						break;
 					case $.jPlayer.event.click:
 						this._trigger(eventType); // This could be dealt with by the default
 						break;
@@ -2405,6 +2412,8 @@
 					if(this.css.jq[fn].length && this[fn]) {
 						var handler = function(e) {
 							e.preventDefault();
+							console.log(e)
+							debugger;
 							self[fn](e);
 							if(self.options.autoBlur) {
 								$(this).blur();
@@ -2413,6 +2422,8 @@
 							}
 						};
 						this.css.jq[fn].bind("click.jPlayer", handler); // Using jPlayer namespace
+//this------------------------------------------------------
+this.css.jq[fn].bind("mousedown.jPlayer", handler);
 					}
 
 					if(cssSel && this.css.jq[fn].length !== 1) { // So empty strings do not generate the warning. ie., they just remove the old one.
@@ -2456,7 +2467,25 @@
 					x = e.pageX - offset.left,
 					w = $bar.width(),
 					p = 100 * x / w;
+					debugger
 				this.playHead(p);
+			}
+		},
+		playBarCir:function(e){
+			if(e.type == "click"){
+				return
+			}else{
+
+				// if(this.css.jq.seekBar.length) {
+				// 	// Using $(e.currentTarget) to enable multiple seek bars
+				// 	var $bar = $(e.currentTarget),
+				// 		offset = $bar.offset(),
+				// 		x = e.pageX - offset.left,
+				// 		w = $bar.width(),
+				// 		p = 100 * x / w;
+				// 		debugger
+				// 	this.playHead(p);
+				// }
 			}
 		},
 		playbackRate: function(pbr) {
@@ -3063,9 +3092,9 @@
 		_html_playHead: function(percent) {
 			var self = this,
 				media = this.htmlElement.media;
-
+			debugger
 			this._html_load(); // Loads if required and clears any delayed commands.
-
+			debugger
 			// This playHead() method needs a refactor to apply the android fix.
 
 			try {

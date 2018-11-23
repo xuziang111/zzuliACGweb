@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        div {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background: #999;
+  padding: 10px;
+  cursor: pointer;
+}
+    </style>
+    <script type="text/javascript" src="./blue.monday/js/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    let xxx = document.getElementsByTagName('div')
+$('div').on('mousedown',function(e){
+    console.log(e)
+      
+    const { pageX, pageY } = event;
+    initPosition = getPosition();
+    $('body').on('mousemove',function(e){
+        const { pageX, pageY } = event;
+        const { left, top} = calcPosition(pageX, pageY);
+
+        xxx[0].style.cssText = `left:${left-10}px;top:${top-10}px;`;
+        console.log('xxx')
+    })
+    $('body').on('mouseup',function(e){
+        $("body").unbind('mousemove');
+    })
+})  
+function calcPosition(pageX, pageY) {
+
+const { left, top, scrollLeft, maxCriticalX, maxCriticalY } = initPosition;
+
+let x = pageX - left;
+let y = pageY - top;
+
+if (x <= scrollLeft) {
+  x = scrollLeft;
+}
+
+if (x >= maxCriticalX) {
+  x = maxCriticalX;
+}
+
+if (y >= maxCriticalY) {
+  y = maxCriticalY;
+}
+
+if ( y<=0 || maxCriticalY < 0) {
+  y = 0;
+}
+
+return {
+  left: x,
+  top: y
+};
+}
+
+
+
+function getPosition() {
+const { left, top, width, height } = xxx[0].getBoundingClientRect();
+const { scrollLeft, scrollTop } = document.body;
+
+const maxCriticalX = scrollLeft + innerWidth - width;
+const maxCriticalY = scrollTop + innerHeight - height;
+
+return {
+    left,
+    top,
+    scrollLeft,
+    maxCriticalX,
+    maxCriticalY
+};
+}
+</script>
+</html>
