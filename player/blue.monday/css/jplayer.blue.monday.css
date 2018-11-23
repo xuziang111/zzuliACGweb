@@ -219,8 +219,9 @@
 
 .jp-audio .jp-progress {
   position: absolute;
-  top: 32px;
-  height: 5px; }
+  top: 37px;
+  height: 5px; 
+}
 
 .jp-audio .jp-type-single .jp-progress {
   left: 110px;
@@ -335,7 +336,9 @@
 /* @group current time and duration */
 .jp-audio .jp-time-holder {
   position: absolute;
-  top: 50px; }
+  top: 50px; 
+  color:#eee;
+}
 
 .jp-audio .jp-type-single .jp-time-holder {
   left: 110px;
