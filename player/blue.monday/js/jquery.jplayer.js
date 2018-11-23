@@ -1005,9 +1005,9 @@
 			this.internal.poster.jq.bind("click.jPlayer", function() {
 				self._trigger($.jPlayer.event.click);
 			});
-			this.internal.poster.jq.bind("mousedown.jPlayer", function() {
-				self._trigger($.jPlayer.event.mousedown);
-			});
+			// this.internal.poster.jq.bind("mousedown.jPlayer", function() {
+			// 	self._trigger($.jPlayer.event.mousedown);
+			// });
 			
 			// Generate the required media elements
 			this.html.audio.available = false;
@@ -2413,7 +2413,7 @@
 						var handler = function(e) {
 							e.preventDefault();
 							console.log(e)
-							debugger;
+							// debugger;
 							self[fn](e);
 							if(self.options.autoBlur) {
 								$(this).blur();
@@ -2423,7 +2423,7 @@
 						};
 						this.css.jq[fn].bind("click.jPlayer", handler); // Using jPlayer namespace
 //this------------------------------------------------------
-this.css.jq[fn].bind("mousedown.jPlayer", handler);
+// this.css.jq[fn].bind("mousedown.jPlayer", handler);
 					}
 
 					if(cssSel && this.css.jq[fn].length !== 1) { // So empty strings do not generate the warning. ie., they just remove the old one.
@@ -2467,7 +2467,7 @@ this.css.jq[fn].bind("mousedown.jPlayer", handler);
 					x = e.pageX - offset.left,
 					w = $bar.width(),
 					p = 100 * x / w;
-					debugger
+					// debugger
 				this.playHead(p);
 			}
 		},
@@ -3092,9 +3092,9 @@ this.css.jq[fn].bind("mousedown.jPlayer", handler);
 		_html_playHead: function(percent) {
 			var self = this,
 				media = this.htmlElement.media;
-			debugger
+			// debugger
 			this._html_load(); // Loads if required and clears any delayed commands.
-			debugger
+			// debugger
 			// This playHead() method needs a refactor to apply the android fix.
 
 			try {

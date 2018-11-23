@@ -145,7 +145,6 @@
   display: block;
   float: left;
   overflow: hidden;
-  text-indent: -9999px;
   border: none;
   cursor: pointer; }
 
@@ -154,40 +153,63 @@
   height: 40px; }
 
 .jp-play {
-  background: url("../image/jplayer.blue.monday.jpg") 0 0 no-repeat; }
+  background: transparent;
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 0 no-repeat;  */
+}
 
-.jp-play:focus {
-  background: url("../image/jplayer.blue.monday.jpg") -41px 0 no-repeat; }
+.jp-play:hover {
+  color:blue;
+  /* background: url("../image/jplayer.blue.monday.jpg") -41px 0 no-repeat;  */
+}
+.jp-play i:nth-child(1){
+  display: block;
+}
+.jp-play i:nth-child(2){
+  display: none;
+}
+.jp-state-playing .jp-play i:nth-child(2) {
+  display:block;
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 -42px no-repeat;  */
+}
+.jp-state-playing .jp-play i:nth-child(1){
+  display:none;
+}
 
-.jp-state-playing .jp-play {
-  background: url("../image/jplayer.blue.monday.jpg") 0 -42px no-repeat; }
 
-.jp-state-playing .jp-play:focus {
-  background: url("../image/jplayer.blue.monday.jpg") -41px -42px no-repeat; }
 
 .jp-stop, .jp-previous, .jp-next {
   width: 28px;
   height: 28px;
-  margin-top: 6px; }
+  margin-top: 6px; 
+  background: transparent;
+}
 
 .jp-stop {
-  background: url("../image/jplayer.blue.monday.jpg") 0 -83px no-repeat;
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 -83px no-repeat; */
   margin-left: 10px; }
 
-.jp-stop:focus {
-  background: url("../image/jplayer.blue.monday.jpg") -29px -83px no-repeat; }
+.jp-stop:hover {
+  color:blue;
+  /* background: url("../image/jplayer.blue.monday.jpg") -29px -83px no-repeat;  */
+}
 
 .jp-previous {
-  background: url("../image/jplayer.blue.monday.jpg") 0 -112px no-repeat; }
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 -112px no-repeat;  */
+}
 
-.jp-previous:focus {
-  background: url("../image/jplayer.blue.monday.jpg") -29px -112px no-repeat; }
+.jp-previous:hover {
+  color:blue;
+  /* background: url("../image/jplayer.blue.monday.jpg") -29px -112px no-repeat;  */
+}
 
 .jp-next {
-  background: url("../image/jplayer.blue.monday.jpg") 0 -141px no-repeat; }
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 -141px no-repeat;  */
+}
 
-.jp-next:focus {
-  background: url("../image/jplayer.blue.monday.jpg") -29px -141px no-repeat; }
+.jp-next:hover {
+  color:blue;
+  /* background: url("../image/jplayer.blue.monday.jpg") -29px -141px no-repeat;  */
+}
 
 /* @end */
 /* @group progress bar */
