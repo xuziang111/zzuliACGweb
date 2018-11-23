@@ -192,13 +192,13 @@
 /* @end */
 /* @group progress bar */
 .jp-progress {
-  overflow: hidden;
+  
   background-color: #ddd; }
 
 .jp-audio .jp-progress {
   position: absolute;
   top: 32px;
-  height: 15px; }
+  height: 5px; }
 
 .jp-audio .jp-type-single .jp-progress {
   left: 110px;
@@ -251,35 +251,48 @@
   display: block;
   position: absolute;
   overflow: hidden;
-  text-indent: -9999px;
+  font-size:15px;
+  line-height:15px;
   border: none;
-  cursor: pointer; }
+  cursor: pointer; 
+  padding:0;
+  background:transparent;
+}
 
 .jp-mute,
 .jp-volume-max {
-  width: 18px;
+  width: 15px;
   height: 15px; }
 
 .jp-volume-max {
   left: 74px; }
 
 .jp-mute {
-  background: url("../image/jplayer.blue.monday.jpg") 0 -170px no-repeat; }
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 -170px no-repeat;  */
+}
 
-.jp-mute:focus {
-  background: url("../image/jplayer.blue.monday.jpg") -19px -170px no-repeat; }
+.jp-mute:hover {
+  color:blue;
+  /* background: url("../image/jplayer.blue.monday.jpg") -19px -170px no-repeat;  */
+}
 
 .jp-state-muted .jp-mute {
-  background: url("../image/jplayer.blue.monday.jpg") -60px -170px no-repeat; }
+  /* background: url("../image/jplayer.blue.monday.jpg") -60px -170px no-repeat;  */
+}
 
-.jp-state-muted .jp-mute:focus {
-  background: url("../image/jplayer.blue.monday.jpg") -79px -170px no-repeat; }
+.jp-state-muted .jp-mute:hover {
+  color:blue;
+  /* background: url("../image/jplayer.blue.monday.jpg") -79px -170px no-repeat;  */
+}
 
 .jp-volume-max {
-  background: url("../image/jplayer.blue.monday.jpg") 0 -186px no-repeat; }
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 -186px no-repeat;  */
+}
 
 .jp-volume-max:focus {
-  background: url("../image/jplayer.blue.monday.jpg") -19px -186px no-repeat; }
+  color:blue;
+  /* background: url("../image/jplayer.blue.monday.jpg") -19px -186px no-repeat;  */
+}
 
 .jp-volume-bar {
   position: absolute;
@@ -485,7 +498,7 @@ span.jp-artist {
   width: 25px; }
 
 .jp-audio .jp-type-playlist .jp-toggles {
-  width: 55px;
+  width: 100px;
   margin: 0;
   position: absolute;
   left: 325px;
@@ -522,36 +535,43 @@ span.jp-artist {
   background: url("../image/jplayer.blue.monday.jpg") -90px -310px no-repeat; }
 
 .jp-repeat {
+  background:transparent;
   /* background: url("../image/jplayer.blue.monday.jpg") 0 -290px no-repeat;  */
 }
 
-.jp-repeat:focus {
+.jp-repeat:hover {
+  color:blue;
   /* sbackground: url("../image/jplayer.blue.monday.jpg") -30px -290px no-repeat;  */
 }
 
 .jp-state-looped .jp-repeat {
+  color:blue;
   /* background: url("../image/jplayer.blue.monday.jpg") -60px -290px no-repeat;  */
 }
 
 .jp-state-looped .jp-repeat:focus {
+  color:blue;
   /* background: url("../image/jplayer.blue.monday.jpg") -90px -290px no-repeat;  */
 }
 
 .jp-shuffle {
   /* background: url("../image/jplayer.blue.monday.jpg") 0 -270px no-repeat; */
   margin-left: 5px; 
-  background:rgba(0,0,0,0.5)
+  background:transparent;
 }
 
-.jp-shuffle:focus {
+.jp-shuffle:hover {
+  color:blue;
   /* background: url("../image/jplayer.blue.monday.jpg") -30px -270px no-repeat;  */
 }
 
 .jp-state-shuffled .jp-shuffle {
+  background:rgba(0,0,0,0.3)
   /* background: url("../image/jplayer.blue.monday.jpg") -60px -270px no-repeat;  */
 }
 
 .jp-state-shuffled .jp-shuffle:focus {
+  background:rgba(0,0,0,0.4)
   /* background: url("../image/jplayer.blue.monday.jpg") -90px -270px no-repeat;  */
 }
 
@@ -596,3 +616,34 @@ span.jp-artist {
    background-color:#b5b1b1;
 } 
 
+.jp-list{
+  margin-left:5px;
+  background:transparent;
+}
+
+.jp-mute i:nth-child(2) {
+  display:none;
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 -170px no-repeat;  */
+}
+.jp-mute i:nth-child(1) {
+  display:block;
+  /* background: url("../image/jplayer.blue.monday.jpg") 0 -170px no-repeat;  */
+}
+
+.jp-state-muted .jp-mute i:nth-child(1){
+display:none;
+}
+.jp-state-muted .jp-mute i:nth-child(2){
+  display:inline;
+  }
+.jp-cir{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: -5.5px;
+    left: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.2);
+    z-index: 2002;
+  }

@@ -514,6 +514,7 @@
 				stop: ".jp-stop",
 				seekBar: ".jp-seek-bar",
 				playBar: ".jp-play-bar",
+				playBarCir:'.jp-cir',
 				mute: ".jp-mute",
 				unmute: ".jp-unmute",
 				volumeBar: ".jp-volume-bar",
@@ -1862,6 +1863,17 @@
 					this.css.jq.playBar.width(this.status.currentPercentRelative+"%");
 				}
 			}
+		// ------------------
+			if(this.css.jq.playBarCir.length) {
+				if(this.options.smoothPlayBar) {
+					this.css.jq.playBarCir.stop().animate({
+						left: this.status.currentPercentAbsolute+"%"
+					}, 250, "linear");
+				} else {
+					this.css.jq.playBarCir.left(this.status.currentPercentRelative+"%");
+				}
+			}
+			//------------------
 			var currentTimeText = '';
 			if(this.css.jq.currentTime.length) {
 				currentTimeText = this._convertTime(this.status.currentTime);

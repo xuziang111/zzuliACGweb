@@ -113,10 +113,14 @@ $(document).ready(function(){
 				<div class="jp-seek-bar">
 					<div class="jp-play-bar"></div>
 				</div>
+				<div class="jp-cir"></div>
 			</div>
 			<div class="jp-volume-controls">
-				<button class="jp-mute" role="button" tabindex="0">mute</button>
-				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<button class="jp-mute" role="button" tabindex="0">
+					<i class="active fa fa-volume-down fa-1x" aria-hidden="true"></i>
+					<i class="fa fa-volume-off fa-1x" aria-hidden="true"></i>
+				</button>
+				<button class="jp-volume-max" role="button" tabindex="0"><i class="fa fa-volume-up fa-1x" aria-hidden="true"></i></i></button>
 				<div class="jp-volume-bar">
 					<div class="jp-volume-bar-value"></div>
 				</div>
@@ -128,7 +132,7 @@ $(document).ready(function(){
 			<div class="jp-toggles">
 				<button class="jp-repeat" role="button" tabindex="0"><i class="fa fa-repeat fa-1x" aria-hidden="true"></i></button>
 				<button class="jp-shuffle" role="button" tabindex="0"><i class="fa fa-random fa-1x" aria-hidden="true"></i></button>
-				<button class="jp-list" role="button" tabindex="0">shuffle</button>
+				<button class="jp-list" role="button" tabindex="0"><i class="fa fa-list fa-1x" aria-hidden="true"></i></button>
 			</div>
 		</div>
 		<div class="jp-playlist topnav_box">
@@ -145,7 +149,11 @@ $(document).ready(function(){
 </body>
 <script>
 $(".jp-list").on('click',function(){
-	$(".jp-playlist").addClass('active')
+	if($(".jp-playlist").hasClass('active')){
+		$(".jp-playlist").removeClass('active')
+	}else{
+		$(".jp-playlist").addClass('active')
+	}
 })
 </script>
 </html>
