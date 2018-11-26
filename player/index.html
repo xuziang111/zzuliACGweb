@@ -165,23 +165,23 @@ $(".jp-list").on('click',function(){
 		$(".jp-playlist").addClass('active')
 	}
 })
-$('.jp-cir').on('mousedown',function(e){
-	console.log(e)
+// $('.jp-cir').on('mousedown',function(e){
+// 	console.log(e)
 
-	$('body').on('mousemove',function(e){
-		let temp = e.pageX-175
-		if(temp<0){
-			temp = 0+'%'
-		}else if(temp>130){
-			temp = 100+'%'
-		}else{
-			temp = (temp/130)*100+'%'
-		}
-		$('.jp-cir').css('left',temp)
-	})
-	$('body').on('mouseup',function(e){
-		$('body').unbind('mousemove')
-	})
-})
+// 	$('body').on('mousemove',function(e){
+// 		let temp = e.pageX-175
+// 		if(temp<0){
+// 			temp = 0+'%'
+// 		}else if(temp>130){
+// 			temp = 100+'%'
+// 		}else{
+// 			temp = (temp/130)*100+'%'
+// 		}
+// 		$('.jp-cir').css('left',temp)
+// 	})
+// 	$('body').on('mouseup',function(e){
+// 		$('body').unbind('mousemove')
+// 	})
+// })
 </script>
 </html>

@@ -2413,7 +2413,7 @@
 						var handler = function(e) {
 							e.preventDefault();
 							console.log(e)
-							// debugger;
+							//debugger;
 							self[fn](e);
 							if(self.options.autoBlur) {
 								$(this).blur();
@@ -2423,7 +2423,11 @@
 						};
 						this.css.jq[fn].bind("click.jPlayer", handler); // Using jPlayer namespace
 //this------------------------------------------------------
-// this.css.jq[fn].bind("mousedown.jPlayer", handler);
+if(cssSel === '.jp-cir'){
+	this.css.jq[fn].bind("mousedown.jPlayer", handler);
+	console.log(cssSel)
+}
+
 					}
 
 					if(cssSel && this.css.jq[fn].length !== 1) { // So empty strings do not generate the warning. ie., they just remove the old one.
@@ -2460,32 +2464,70 @@
 			}
 		},
 		seekBar: function(e) { // Handles clicks on the seekBar
-			if(this.css.jq.seekBar.length) {
-				// Using $(e.currentTarget) to enable multiple seek bars
-				var $bar = $(e.currentTarget),
-					offset = $bar.offset(),
-					x = e.pageX - offset.left,
-					w = $bar.width(),
-					p = 100 * x / w;
-					// debugger
-				this.playHead(p);
+			if(e.type == "click"){
+				if(this.css.jq.seekBar.length) {
+					console.log(this)
+					// Using $(e.currentTarget) to enable multiple seek bars
+					var $bar = $(e.currentTarget),
+						offset = $bar.offset(),
+						x = e.pageX - offset.left,
+						w = $bar.width(),
+						p = 100 * x / w;
+						//debugger
+						console.log($bar)
+					this.playHead(p);
+				}
+			}else if(e.type == "mousedown"){
+				// $('body').on('mousemove',(e)=>{
+				// 	console.log
+				// if(this.css.jq.seekBar.length) {
+				// 	// Using $(e.currentTarget) to enable multiple seek bars
+				// 	var $bar = $('.jp-seek-bar'),
+				// 		offset = $bar.offset(),
+				// 		x = e.pageX - offset.left,
+				// 		w = $bar.width(),
+				// 		p = 100 * x / w;
+				// 		if(p<0){
+				// 			p=0
+				// 		}else if(p>99.9){
+				// 			p=99.9
+				// 		}
+				// 		console.log(p)
+				// 		//debugger
+				// 		this.playHead(p);
+				// }
+				// })
+				// $('body').on('mouseup',function(e){
+				// 	$('body').unbind('mousemove')
+				// })
 			}
 		},
 		playBarCir:function(e){
 			if(e.type == "click"){
 				return
-			}else{
-
-				// if(this.css.jq.seekBar.length) {
-				// 	// Using $(e.currentTarget) to enable multiple seek bars
-				// 	var $bar = $(e.currentTarget),
-				// 		offset = $bar.offset(),
-				// 		x = e.pageX - offset.left,
-				// 		w = $bar.width(),
-				// 		p = 100 * x / w;
-				// 		debugger
-				// 	this.playHead(p);
-				// }
+			}else if(e.type == "mousedown"){
+				$('body').on('mousemove',(e)=>{
+					console.log
+				if(this.css.jq.seekBar.length) {
+					// Using $(e.currentTarget) to enable multiple seek bars
+					var $bar = $('.jp-seek-bar'),
+						offset = $bar.offset(),
+						x = e.pageX - offset.left,
+						w = $bar.width(),
+						p = 100 * x / w;
+						if(p<0){
+							p=0
+						}else if(p>99.9){
+							p=99.9
+						}
+						console.log(p)
+						//debugger
+						this.playHead(p);
+				}
+				})
+				$('body').on('mouseup',function(e){
+					$('body').unbind('mousemove')
+				})
 			}
 		},
 		playbackRate: function(pbr) {
@@ -3092,9 +3134,9 @@
 		_html_playHead: function(percent) {
 			var self = this,
 				media = this.htmlElement.media;
-			// debugger
+			//debugger
 			this._html_load(); // Loads if required and clears any delayed commands.
-			// debugger
+			// //debugger
 			// This playHead() method needs a refactor to apply the android fix.
 
 			try {
