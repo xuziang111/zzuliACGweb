@@ -8,10 +8,11 @@
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="blue.monday/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="./blue.monday/js/jquery.min.js"></script>
-<script type="text/javascript" src="./blue.monday/js/jquery.jplayer.js"></script>
+<script type="text/javascript" src="./blue.monday/js/jquery.jplayer2.js"></script>
 <script type="text/javascript" src="./blue.monday/js/jplayer.playlist.js"></script>
 <script type="text/javascript">
 //<![CDATA[
+
 var xxx
 $(document).ready(function(){
 
@@ -92,7 +93,7 @@ $(document).ready(function(){
 		wmode: "window",
 		useStateClassSkin: true,
 		autoBlur: false,
-		smoothPlayBar: true,
+		smoothPlayBar: false,
 		keyEnabled: true
 	});
 });
@@ -164,47 +165,6 @@ body{
 	</div>
 </div>
 </body>
-<script>
-	// 175-305
-$(".jp-list").on('click',function(){
-	if($(".jp-playlist").hasClass('active')){
-		$(".jp-playlist").removeClass('active')
-	}else{
-		$(".jp-playlist").addClass('active')
-	}
-})
-let switchplay=0
-$(".switch-play").on('click',function(){
-	if(switchplay===0){
-		$(".switch-play i:nth-child(2)").addClass('active')
-		$(".switch-play i:nth-child(1)").removeClass('active')
-		$("#jp_container_1").removeClass('active')
-		switchplay++
-	}else{
-		$(".switch-play i:nth-child(2)").removeClass('active')
-		$(".switch-play i:nth-child(1)").addClass('active')
-		$("#jp_container_1").addClass('active')
-		switchplay--
-	}
-
-})
-// $('.jp-cir').on('mousedown',function(e){
-// 	console.log(e)
-
-// 	$('body').on('mousemove',function(e){
-// 		let temp = e.pageX-175
-// 		if(temp<0){
-// 			temp = 0+'%'
-// 		}else if(temp>130){
-// 			temp = 100+'%'
-// 		}else{
-// 			temp = (temp/130)*100+'%'
-// 		}
-// 		$('.jp-cir').css('left',temp)
-// 	})
-// 	$('body').on('mouseup',function(e){
-// 		$('body').unbind('mousemove')
-// 	})
-// })
-</script>
+<script src="./blue.monday/js/player.js"></script>
+<!-- // 175-305 -->
 </html>

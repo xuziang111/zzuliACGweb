@@ -599,16 +599,17 @@ span.jp-artist {
 
 .jp-shuffle:hover {
   color:blue;
+  background:rgba(0,0,0,0.4)
   /* background: url("../image/jplayer.blue.monday.jpg") -30px -270px no-repeat;  */
 }
 
 .jp-state-shuffled .jp-shuffle {
-  background:rgba(0,0,0,0.3)
+  color:blue;
   /* background: url("../image/jplayer.blue.monday.jpg") -60px -270px no-repeat;  */
 }
 
-.jp-state-shuffled .jp-shuffle:focus {
-  background:rgba(0,0,0,0.4)
+.jp-state-shuffled .jp-shuffle:hover {
+  background:rgba(0,0,0,0.3)
   /* background: url("../image/jplayer.blue.monday.jpg") -90px -270px no-repeat;  */
 }
 
@@ -689,7 +690,7 @@ display:none;
   left:100%;
   top:20px;
   height:40px;
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.3);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
