@@ -106,7 +106,7 @@ body{
 </head>
 <body>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+<div id="jp_container_1" class="jp-audio active" role="application" aria-label="media player">
 	<div class="jp-type-playlist">
 		<div class="jp-gui jp-interface">
 			<div class="jp-controls">
@@ -145,14 +145,20 @@ body{
 			</div>
 		</div>
 		<div class="jp-playlist topnav_box">
+			<div class="topnav_box">
 			<ul>
 				<li>&nbsp;</li>
 			</ul>
+		</div>
 		</div>
 		<div class="jp-no-solution">
 			<span>Update Required</span>
 			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
 		</div>
+	</div>
+	<div class="switch-play">
+		<i class="fa fa-chevron-left fa-2x active" aria-hidden="true"></i>
+		<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
 	</div>
 </div>
 </body>
@@ -164,6 +170,21 @@ $(".jp-list").on('click',function(){
 	}else{
 		$(".jp-playlist").addClass('active')
 	}
+})
+let switchplay=0
+$(".switch-play").on('click',function(){
+	if(switchplay===0){
+		$(".switch-play i:nth-child(2)").addClass('active')
+		$(".switch-play i:nth-child(1)").removeClass('active')
+		$("#jp_container_1").removeClass('active')
+		switchplay++
+	}else{
+		$(".switch-play i:nth-child(2)").removeClass('active')
+		$(".switch-play i:nth-child(1)").addClass('active')
+		$("#jp_container_1").addClass('active')
+		switchplay--
+	}
+
 })
 // $('.jp-cir').on('mousedown',function(e){
 // 	console.log(e)

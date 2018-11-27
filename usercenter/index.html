@@ -31,6 +31,7 @@
     <link href="./CSS/safeList.css" rel="stylesheet">
     <link href="./CSS/prs-info.css" rel="stylesheet">
     <link href="./CSS/wodejilu.css" rel="stylesheet">
+	<link href="blue.monday/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
 
     <!--此处引入你的外部CSS文件，end-->
     <!--*********************************************************************************************-->
@@ -110,6 +111,58 @@
         </div>
     </div>
 </div>
+
+
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-playlist">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-previous" role="button" tabindex="0"><i class="fa fa-fast-backward fa-1x" aria-hidden="true"></i></button>
+				<button class="jp-play" role="button" tabindex="0">
+						<i class="fa fa-play fa-1x" aria-hidden="true"></i>
+						<i class="fa fa-pause fa-1x" aria-hidden="true"></i>
+				</button>
+				<button class="jp-next" role="button" tabindex="0"><i class="fa fa-fast-forward fa-1x" aria-hidden="true"></i></button>
+				<button class="jp-stop" role="button" tabindex="0"><i class="fa fa-stop fa-1x" aria-hidden="true"></i></button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+				<div class="jp-cir"></div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">
+					<i class="active fa fa-volume-down fa-1x" aria-hidden="true"></i>
+					<i class="fa fa-volume-off fa-1x" aria-hidden="true"></i>
+				</button>
+				<button class="jp-volume-max" role="button" tabindex="0"><i class="fa fa-volume-up fa-1x" aria-hidden="true"></i></i></button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+			</div>
+			<div class="jp-toggles">
+				<button class="jp-repeat" role="button" tabindex="0"><i class="fa fa-repeat fa-1x" aria-hidden="true"></i></button>
+				<button class="jp-shuffle" role="button" tabindex="0"><i class="fa fa-random fa-1x" aria-hidden="true"></i></button>
+				<button class="jp-list" role="button" tabindex="0"><i class="fa fa-list fa-1x" aria-hidden="true"></i></button>
+			</div>
+		</div>
+		<div class="jp-playlist topnav_box">
+			<ul>
+				<li>&nbsp;</li>
+			</ul>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
 <!--==========================================-->
 <!--*********************************************************************************************-->
 <!-- Footer 样式占位，用于大体预览网页效果，此处不用修改
@@ -165,11 +218,102 @@
 <script src="./JavaScript/vue/app-vue.js"></script>
 <!-- <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <script type="text/javascript" src="./JavaScript/main.js"></script>
-<script>
-// $('.popwindow').on('touchmove',function (event) {
-//     event.preventDefault();
-// })
+<script type="text/javascript" src="./blue.monday/js/jquery.jplayer.js"></script>
+<script type="text/javascript" src="./blue.monday/js/jplayer.playlist.js"></script>
+<script type="text/javascript">
+//<![CDATA[
 
+$(".jp-list").on('click',function(){
+	if($(".jp-playlist").hasClass('active')){
+		$(".jp-playlist").removeClass('active')
+	}else{
+		$(".jp-playlist").addClass('active')
+	}
+})
+$(document).ready(function(){
+
+	new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_1",
+		cssSelectorAncestor: "#jp_container_1"
+	}, [
+		{
+			title:"Xenosaga",
+			mp3:"Xenosaga.mp3",
+			oga:"Xenosaga.mp3"
+		},
+		{
+			title:"打上花火",
+			mp3:"打上花火.mp3",
+		},
+		{
+			title:"Cyber Sonnet",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg"
+		},
+		{
+			title:"Tempered Song",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg"
+		},
+		{
+			title:"Hidden",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
+		},
+		{
+			title:"Lentement",
+			free:true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-03-Lentement.ogg"
+		},
+		{
+			title:"Lismore",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-04-Lismore.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-04-Lismore.ogg"
+		},
+		{
+			title:"The Separation",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-05-The-separation.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-05-The-separation.ogg"
+		},
+		{
+			title:"Beside Me",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-06-Beside-me.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-06-Beside-me.ogg"
+		},
+		{
+			title:"Bubble",
+			free:true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+		},
+		{
+			title:"Stirring of a Fool",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-08-Stirring-of-a-fool.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-08-Stirring-of-a-fool.ogg"
+		},
+		{
+			title:"Partir",
+			free: true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-09-Partir.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-09-Partir.ogg"
+		},
+		{
+			title:"Thin Ice",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-10-Thin-ice.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-10-Thin-ice.ogg"
+		}
+	], {
+		swfPath: "../../dist/jplayer",
+		supplied: "oga, mp3",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+});
+//]]>
 </script>
 <!--*********************************************************************************************-->
 <!--此处追加你要增加的外部JS文件标签，start-->
