@@ -78,6 +78,7 @@
 		// Create a ready event handler to initialize the playlist
 		$(this.cssSelector.jPlayer).bind($.jPlayer.event.ready, function() {
 			self._init();
+			$('.jps-title').text(xxx.playlist[xxx.current].title);
 		});
 
 		// Create an ended event handler to move to the next item
@@ -85,10 +86,15 @@
 			self.next();
 		});
 
+
+//更换歌曲标题
+
 		// Create a play event handler to pause other instances
 		$(this.cssSelector.jPlayer).bind($.jPlayer.event.play, function() {
 			$(this).jPlayer("pauseOthers");
+			$('.jps-title').text(xxx.playlist[xxx.current].title)
 		});
+		
 
 		// Create a resize event handler to show the title in full screen mode.
 		$(this.cssSelector.jPlayer).bind($.jPlayer.event.resize, function(event) {

@@ -12,9 +12,10 @@
 <script type="text/javascript" src="./blue.monday/js/jplayer.playlist.js"></script>
 <script type="text/javascript">
 //<![CDATA[
+var xxx
 $(document).ready(function(){
 
-	new jPlayerPlaylist({
+	xxx = new jPlayerPlaylist({
 		jPlayer: "#jquery_jplayer_1",
 		cssSelectorAncestor: "#jp_container_1"
 	}, [
@@ -118,6 +119,7 @@ body{
 				<button class="jp-next" role="button" tabindex="0"><i class="fa fa-fast-forward fa-1x" aria-hidden="true"></i></button>
 				<button class="jp-stop" role="button" tabindex="0"><i class="fa fa-stop fa-1x" aria-hidden="true"></i></button>
 			</div>
+			<div class="jps-title">xxxx</div>
 			<div class="jp-progress">
 				<div class="jp-seek-bar">
 					<div class="jp-play-bar"></div>

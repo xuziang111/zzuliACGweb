@@ -690,6 +690,8 @@ display:none;
   top:20px;
   height:40px;
   background:rgba(0,0,0,0.5);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .switch-play>i{
   line-height:40px;
@@ -702,4 +704,13 @@ display:none;
 .jp-playlist>div{
   height:300px;
   overflow-y:auto;
+}
+.jps-title{
+  position: absolute;
+  top:50px;
+  left:26px;
+  color:#eee;
+  font-size:.64em;
+  font-style:oblique;
+  width:124px;
 }
