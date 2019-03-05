@@ -14,10 +14,11 @@
  * Skin Version: 5.1 (jPlayer 2.8.0)
  * Date: 13th November 2014
  */
+ *{padding:0;margin:0}
  .jp-audio{
    position: fixed;
-   bottom:40px;;
-   left:-420px;
+   /* bottom:40px;;
+   left:-420px; */
    transition: all .3s linear;
    background: rgba(0,0,0,0.5);
  }
@@ -714,4 +715,7 @@ display:none;
   font-size:.64em;
   font-style:oblique;
   width:124px;
+}
+iframe{
+  background: transparent;
 }

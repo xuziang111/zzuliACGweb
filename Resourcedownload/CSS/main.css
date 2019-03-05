@@ -12,6 +12,11 @@
         display:none
     }
 }
+@media (min-width: 1367px){
+    .container {
+        width: 1300px;
+    }
+}
 /* 修改bootstrap和html默认样式 表格全部居中 */
 #tablelist th{
     text-align:center;
@@ -58,11 +63,40 @@ padding:30px;
     width:100%;
     background:rgba(255,255,255,0.1);
     border:1px solid #ddd;
+}
+.topbar>ul{
+    width:100%;
     display:flex;
     justify-content: space-around;
     align-items: center;
     line-height:30px;
+    margin:0;
 }
 .topbar>p{
     margin:0px;
+}
+.topbar>ul>li{
+    position: relative;
+    width:5em;
+    
+}
+.liList{
+    position: absolute;
+    display:none;
+    border-radius:3px;
+    z-index:11;
+}
+.liList:before{
+position: absolute;
+top:-14px;
+content:'';
+left:2em;
+border-width: 0.5em;
+border-style: solid;
+border-color: transparent transparent rgba(255,255,255,0.3) transparent;
+}
+.topbar>ul>li:hover .liList{
+    display:block;
+    padding:0 0.5em;
+    background:rgba(255,255,255,0.3)
 }

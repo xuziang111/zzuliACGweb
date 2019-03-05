@@ -93,7 +93,7 @@
           ajaxsuccess:function(data){
             // let temp=JSON.parse(data)
             this.userdata=Object.assign({}, this.userdata,data)
-
+            console.log(this.userdata)
             if(this.userdata.emailif != 1){
                 this.userdata.emailvalue="未绑定邮箱"
             }
@@ -118,6 +118,9 @@
         }
         },
         created:function(){
+          setTimeout(function(){
+
+          },3000)
         //从后台拿信息
         let user = document.cookie
         _temp = this
@@ -130,7 +133,6 @@
             processData: false,    //false
             cache: false,    //缓存
             beforeSend:function(){
-              console.log(_temp)
               _temp.loadingOpen()
               _temp.ajaxsuccess(_temp.userdata)
             },

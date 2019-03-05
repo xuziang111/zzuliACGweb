@@ -1,90 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        div {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 10px;
-  height: 10px;
-  background: #999;
-  padding: 10px;
-  cursor: pointer;
+<meta charset="utf-8" />
+<!-- Website Design By: www.happyworm.com -->
+<title>Demo : jPlayer as an audio playlist player</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="blue.monday/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./blue.monday/js/jquery.min.js"></script>
+<script type="text/javascript" src="./blue.monday/js/jquery.jplayer2.js"></script>
+<script type="text/javascript" src="./blue.monday/js/jplayer.playlist.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+var xxx
+$(document).ready(function(){
+
+	xxx = new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_1",
+		cssSelectorAncestor: "#jp_container_1"
+	}, [
+		{
+			title:"Xenosaga",
+			mp3:"Xenosaga.mp3",
+			oga:"Xenosaga.mp3"
+		},
+		{
+			title:"打上花火",
+			mp3:"打上花火.mp3",
+		},
+		{
+			title:"Cyber Sonnet",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg"
+		},
+		{
+			title:"Tempered Song",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg"
+		},
+		{
+			title:"Hidden",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
+		},
+		{
+			title:"Lentement",
+			free:true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-03-Lentement.ogg"
+		},
+		{
+			title:"Lismore",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-04-Lismore.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-04-Lismore.ogg"
+		},
+		{
+			title:"The Separation",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-05-The-separation.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-05-The-separation.ogg"
+		},
+		{
+			title:"Beside Me",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-06-Beside-me.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-06-Beside-me.ogg"
+		},
+		{
+			title:"Bubble",
+			free:true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+		},
+		{
+			title:"Stirring of a Fool",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-08-Stirring-of-a-fool.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-08-Stirring-of-a-fool.ogg"
+		},
+		{
+			title:"Partir",
+			free: true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-09-Partir.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-09-Partir.ogg"
+		},
+		{
+			title:"Thin Ice",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-10-Thin-ice.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-10-Thin-ice.ogg"
+		}
+	], {
+		swfPath: "../../dist/jplayer",
+		supplied: "oga, mp3",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: false,
+		keyEnabled: true
+	});
+});
+//]]>
+</script>
+<style>
+body{
+	height:2000px;
+	width:1000px;
 }
-    </style>
-    <script type="text/javascript" src="./blue.monday/js/jquery.min.js"></script>
-    <title>Document</title>
+</style>
 </head>
 <body>
-    <div></div>
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio active" role="application" aria-label="media player">
+	<div class="jp-type-playlist">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-previous" role="button" tabindex="0"><i class="fa fa-fast-backward fa-1x" aria-hidden="true"></i></button>
+				<button class="jp-play" role="button" tabindex="0">
+						<i class="fa fa-play fa-1x" aria-hidden="true"></i>
+						<i class="fa fa-pause fa-1x" aria-hidden="true"></i>
+				</button>
+				<button class="jp-next" role="button" tabindex="0"><i class="fa fa-fast-forward fa-1x" aria-hidden="true"></i></button>
+				<button class="jp-stop" role="button" tabindex="0"><i class="fa fa-stop fa-1x" aria-hidden="true"></i></button>
+			</div>
+			<div class="jps-title">xxxx</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+				<div class="jp-cir"></div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">
+					<i class="active fa fa-volume-down fa-1x" aria-hidden="true"></i>
+					<i class="fa fa-volume-off fa-1x" aria-hidden="true"></i>
+				</button>
+				<button class="jp-volume-max" role="button" tabindex="0"><i class="fa fa-volume-up fa-1x" aria-hidden="true"></i></i></button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+			</div>
+			<div class="jp-toggles">
+				<button class="jp-repeat" role="button" tabindex="0"><i class="fa fa-repeat fa-1x" aria-hidden="true"></i></button>
+				<button class="jp-shuffle" role="button" tabindex="0"><i class="fa fa-random fa-1x" aria-hidden="true"></i></button>
+				<button class="jp-list" role="button" tabindex="0"><i class="fa fa-list fa-1x" aria-hidden="true"></i></button>
+			</div>
+		</div>
+		<div class="jp-playlist topnav_box">
+			<div class="topnav_box">
+			<ul>
+				<li>&nbsp;</li>
+			</ul>
+		</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+	<div class="switch-play">
+		<i class="fa fa-chevron-left fa-2x active" aria-hidden="true"></i>
+		<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+	</div>
+</div>
 </body>
-<script>
-    let xxx = document.getElementsByTagName('div')
-$('div').on('mousedown',function(e){
-    console.log(e)
-      
-    const { pageX, pageY } = event;
-    initPosition = getPosition();
-    $('body').on('mousemove',function(e){
-        const { pageX, pageY } = event;
-        const { left, top} = calcPosition(pageX, pageY);
-
-        xxx[0].style.cssText = `left:${left-10}px;top:${top-10}px;`;
-        console.log('xxx')
-    })
-    $('body').on('mouseup',function(e){
-        $("body").unbind('mousemove');
-    })
-})  
-function calcPosition(pageX, pageY) {
-
-const { left, top, scrollLeft, maxCriticalX, maxCriticalY } = initPosition;
-
-let x = pageX - left;
-let y = pageY - top;
-
-if (x <= scrollLeft) {
-  x = scrollLeft;
-}
-
-if (x >= maxCriticalX) {
-  x = maxCriticalX;
-}
-
-if (y >= maxCriticalY) {
-  y = maxCriticalY;
-}
-
-if ( y<=0 || maxCriticalY < 0) {
-  y = 0;
-}
-
-return {
-  left: x,
-  top: y
-};
-}
-
-
-
-function getPosition() {
-const { left, top, width, height } = xxx[0].getBoundingClientRect();
-const { scrollLeft, scrollTop } = document.body;
-
-const maxCriticalX = scrollLeft + innerWidth - width;
-const maxCriticalY = scrollTop + innerHeight - height;
-
-return {
-    left,
-    top,
-    scrollLeft,
-    maxCriticalX,
-    maxCriticalY
-};
-}
-</script>
+<script src="./blue.monday/js/player.js"></script>
+<!-- // 175-305 -->
 </html>

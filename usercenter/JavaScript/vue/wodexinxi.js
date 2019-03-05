@@ -135,5 +135,6 @@ let wodexinxi = Vue.component('per-inf',{
         this.userdatatemp.birthday = this.userdata.birthday
         this.userdatatemp.identity = this.userdata.identity
         this.userdatatemp.sexselect[this.userdatatemp.sex] = 'active'
+        console.log(this.userdata)
     }
 })
