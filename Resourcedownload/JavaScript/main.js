@@ -1,6 +1,7 @@
 function xxx(){
-    if(localStorage.getItem('userKnow')){
-        $('.popwindow').css({display:'none'})
+    console.log(localStorage.getItem('userKnow'))
+    if(!localStorage.getItem('userKnow')){
+        $('.popwindow').css({display:'flex'})
     }
 }
 $('.btn-agree').on('click',()=>{
@@ -8,16 +9,19 @@ let temp = []
 $("input[name='windowpopname']").each(function(index,e){
     temp.push($(e).prop('checked'))
 })
+if(temp[1]){
+    $('.popwindow').css({display:'none'})
+}else{
+    alert('请同意！')
+    return
+}
+
 if(temp[0]){
     localStorage.setItem('userKnow', 'true');
     let cat = localStorage.getItem('userKnow');
     console.log(cat)
 }
-if(temp[1]){
-    $('.popwindow').css({display:'none'})
-}else{
-    alert('请同意！')
-}
+
 
 })
 function yyy(){
@@ -58,3 +62,4 @@ function yyy(){
     $('.topbar>ul').append(temp)
     }
 yyy()
+xxx()
