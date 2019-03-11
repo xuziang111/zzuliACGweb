@@ -5,7 +5,7 @@
         $.ajax({
             type: "get",
             url: "/loadingmagnet",
-            data: 'temp', 
+            data: 'data', //设置获取的magnet
             processData: false,    //false
             cache: false,    //缓存
             beforeSend:function(){
@@ -15,6 +15,7 @@
             success: function(data){
                 // $(_temp).text(data.magnetInfo)
                 let xxx = `<a href="${data.magnetInfo}">${data.magnetInfo}</a>` 
+                $(_temp).text('')
                 $(_temp).append(xxx)
                 // _temp.setAttribute('data-clipboard-text',data.magnetInfo)
                 // var clipboard = new ClipboardJS('.vipLinkHref', {

@@ -97,8 +97,3 @@ section#BTList .fileList{
     color:#FCAC45;
     cursor: pointer;
 }
-input.test{
-    position: fixed;
-    left:-1000px;
-    
-}
