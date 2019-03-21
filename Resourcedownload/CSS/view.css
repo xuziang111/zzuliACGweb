@@ -93,7 +93,9 @@ section#BTList .fileList{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
     background-color: #AAA;  
 }
-#BTList>.downloadList>p.vipLink>span{
+
+
+.vipLink>.vipLinkHref{
     color:#FCAC45;
     cursor: pointer;
 }
